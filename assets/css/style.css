@@ -1,0 +1,524 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    position: relative;
+    min-height: 100vh;
+}
+
+.header{
+ 
+    height: 80px;
+    background-color: #0B1727;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #FCB35F;
+    z-index: 1;
+}
+
+.header__logo{
+    flex: 1;
+}
+
+.header__search{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.header__search-input{
+    width: 100%;
+}
+
+.search-input{
+    padding: 8px;
+    width: 100%;
+}
+
+.header__search-btn{
+    background-color: #FCB35F;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    padding: 8px 12px;
+    border-radius: 2px;
+    border: none;
+}
+
+.header__search-btn:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.search-btn{
+    height: 100%;
+}
+
+.header__form{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__cart{
+    
+}
+
+.cart-btn{
+    color: white;
+    font-size: 28px;
+}
+
+.header__login{
+    margin-left: 20px;
+}
+
+.header__login:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.header__login-btn{
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    background-color: #FCB35F;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* Start Modal_Login */
+
+.modal__login{
+    
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: none;
+}
+
+.modal__overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 10;
+  
+}
+
+.modal__content{
+    top: 25%;
+    left: 30%;
+    width: 40%;
+    padding-top: 8px;
+    padding-bottom: 16px;
+    background-color: white;
+    z-index: 11;
+    position: absolute;    
+    border-radius: 5px;
+    animation: .5s ease-in transitionY;
+}
+
+.modal__content-heading{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 26px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 20px;
+}
+
+.modal__content-list{
+   margin: 16px 0px;
+ 
+   
+}
+
+.modal__content-des{
+    font-size: 18px;
+    font-family: sans-serif;
+    padding: 8px;
+}
+
+.modal__content-item{
+ 
+    padding: 6px 16px;
+}
+
+.modal__content-btn{
+    padding: 8px 30px;
+    background-color: #FCB35F;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.modal__content-social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal__content-login-other{
+    margin: 16px;
+    font-family: sans-serif;
+    font-size: 16px;
+    
+}
+
+
+.modal__content-social-item{
+    margin-left: 10px;
+}
+
+.social-item{
+    font-size: 30px;
+}
+
+.modal__content-sign-up{
+    margin-top: 20px;
+    font-family: sans-serif;
+}
+
+.modal__content-sign-up-btn{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 8px 16px;
+}
+
+.modal__content-list:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.modal__content-social-item:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.modal__content-sign-up-btn:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.modal__content-btn-close{
+    top: 0;
+    right: 0;
+    position: absolute;
+    font-size: 25px;
+    padding: 8px;
+}
+
+.modal__content-btn-close:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.active-close{
+    display: none;
+}
+
+.active-open{
+    display: block;
+}
+
+.header__cart:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+@keyframes transitionY{
+    from {
+        transform: translateY(-200%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+}
+/* End Modal_Login */
+
+/* Slider */
+.slider{
+ 
+    width: 100%;
+    margin: 0 auto;
+
+    overflow: hidden;
+  }
+  
+  .slides{
+    margin-top: 80px;
+    width: 500%;
+    height: 400px;
+    display: flex;
+  
+  }
+  
+  .slides input{
+    display: none;
+  }
+  
+  .slide{
+    width: 20%;
+    transition: 2s;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .slide img{
+    width: 100%;
+    height: 100%;
+  }
+  
+  /*css for manual slide navigation*/
+  
+  .navigation-manual{
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: none;
+  }
+  
+  .manual-btn{
+    border: 2px solid #40D3DC;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+  }
+  
+  .manual-btn:not(:last-child){
+    margin-right: 40px;
+  }
+  
+  .manual-btn:hover{
+    background: #40D3DC;
+  }
+  
+  #radio1:checked ~ .first{
+    margin-left: 0;
+  }
+  
+  #radio2:checked ~ .first{
+    margin-left: -20%;
+  }
+  
+  #radio3:checked ~ .first{
+    margin-left: -40%;
+  }
+  
+  #radio4:checked ~ .first{
+    margin-left: -60%;
+  }
+  
+  /*css for automatic navigation*/
+  
+  .navigation-auto{
+    position: absolute;
+    display: none;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+  }
+  
+  .navigation-auto div{
+    border: 2px solid #40D3DC;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+  }
+  
+  .navigation-auto div:not(:last-child){
+    margin-right: 40px;
+  }
+  
+  #radio1:checked ~ .navigation-auto .auto-btn1{
+    background: #40D3DC;
+  }
+  
+  #radio2:checked ~ .navigation-auto .auto-btn2{
+    background: #40D3DC;
+  }
+  
+  #radio3:checked ~ .navigation-auto .auto-btn3{
+    background: #40D3DC;
+  }
+  
+  #radio4:checked ~ .navigation-auto .auto-btn4{
+    background: #40D3DC;
+  }
+        
+  .first{
+    
+    background-image: url(https://cellphones.com.vn/sforum/wp-content/uploads/2020/02/frozen-landscape-wallpaper-iphone-idownloadblog-ongliong11-mockup-1536x1024-1.png);
+  }
+  
+  .second{
+    background-image: url(https://cdn.tgdd.vn/Files/2020/10/23/1301446/iphone-12-pro-wallpaper-11_800x450.png);
+  }
+  
+  .third{
+    background-image: url(https://photo2.tinhte.vn/data/attachment-files/2020/11/5219214_D90AD751-3A62-4407-A692-66B7708BB058.jpeg);
+  }
+  
+  .four{
+    background-image: url(https://cdn.tgdd.vn/Files/2020/05/26/1258494/iphone_800x450.jpg);
+  }
+  
+/* End Slider */
+
+/* Container */
+.container{
+  margin-top: 30px;
+    
+}
+
+.container__heading{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.home__product{
+    width: 100%;
+}
+
+.home__product-item{
+  text-decoration: none;
+  background-color: var(--white-color);
+  margin-top: 10px;
+  position: relative;
+  box-shadow: 0 1px 5px #999;
+  /* Animation dịch lên 5px */
+  transition: tranform linear 0.5s;
+  display: block;
+  text-decoration: none;
+  border-radius: 20px;
+    padding: 8px;
+}
+
+.home__product-item-description{
+    padding-bottom: 8px;
+}
+
+.home__product-item-description h4{
+    color: black;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.home__product-item-img{
+    width: 100%;
+    text-align: center;
+}
+
+.home__product-item-img img{
+    width: 80%;
+}
+
+.home__product-item-appreciate{
+    display: flex;
+    padding-bottom: 8px;
+}
+
+.home__product-item-appreciate span{
+    text-decoration: none;
+    color: black;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin-left: 2px;
+}
+
+.appreciate-item{
+    color: #FCB35F;
+}
+
+.home__product-item-prices{
+    padding-bottom: 8px;
+}
+
+.home__product-item-prices h4{
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+
+.home__product-item-btn{
+    width: 100%;
+    text-align: center;
+}
+
+.home__product-item-btn button{
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background-color: #FCB35F;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.appreciate-item-btn{
+    font-size: 15px;
+}
+
+/* End Container */
+
+/* Pagination */
+
+.pagination{
+    width: 100%;
+    position: relative;
+    padding-bottom: 50px;
+    margin-top: 40px;
+}
+
+.pagination__list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+}
+
+.pagination__list-item{
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    margin: 1px;
+    color:black;
+    font-size: 14px;
+}
+
+.pagination__list-item:nth-child(4),
+.pagination__list-item:nth-child(5),
+.pagination__list-item:nth-child(6),
+.pagination__list-item:nth-child(7)
+{
+    color: #FCB35F;
+}
+
+
+.pagination__list-item-active{
+    color: white;
+    background-color: #FCB35F;
+}
+
+/* End pagination */

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopIT</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="main">
+        
+        <div class="header">
+            <div class="header__logo">
+                <img src="./assets/img/logo1.png" alt="" class="header__logo-img">
+            </div>
+
+            <div class="header__search">
+
+                <div class="header__search-input">
+                    <input type="text" placeholder="Search something........." class="search-input">
+                </div>
+                
+                <div class="header__search-btn">
+                    <i class="search-btn fas fa-search"></i>
+                </div>
+
+            </div>
+
+            <div class="header__form">
+
+                <div class="header__cart">
+                    <i class="cart-btn fas fa-cart-plus"></i>
+                </div>
+
+                <div class="header__login">
+                    <a id="user__display" class="header__login-btn">Login</a>
+                </div>
+          
+            </div>
+        </div>
+
+        <div class="modal__login">
+
+            <div class="modal__overlay"></div>
+
+            <div class="modal__content">
+                    
+                <div class="modal__content-heading">Login</div>
+
+                <form action="" method="POST" id="form-login" role="form">
+                    <div class="modal__content-list">
+                        <label for="username" class="modal__content-des">Tài khoản</label>
+                        <input type="text" placeholder="Enter your username......" name="username" id="username" class="modal__content-item">
+                    </div>
+                
+                    <div class="modal__content-list">
+                        <label for="password" class="modal__content-des">Mật khẩu</label>
+                        <input type="text" placeholder="Enter your password......" name="password" id="password" class="modal__content-item">
+                    </div>
+
+                    <div class="modal__content-list">
+                        <input type="submit" name="submit" value="LOGIN" class="modal__content-btn">    
+                    </div>
+                
+                    <p class="modal__content-login-other">or sign in with</p>
+
+                    <div class="modal__content-social">
+                        <div class="modal__content-social-item"><i class="social-item fab fa-facebook"></i></div>
+                        <div class="modal__content-social-item"><i class="social-item fab fa-telegram"></i></div>
+                        <div class="modal__content-social-item"><i class="social-item fab fa-github"></i></div>
+                    </div>
+
+                    <p class="modal__content-sign-up">Bạn chưa có tài khoản? <a href="" class="modal__content-sign-up-btn">Sign up</a></p>
+
+                    <div class="modal__content-btn-close">
+                        <i class="btn-close far fa-times-circle"></i>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="slider">
+            <div class="slides">
+              
+
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+               
+                    
+                    <div class="slide first"></div>
+                    <div class="slide second"></div>
+                    <div class="slide third"></div>
+                    <div class="slide four"></div>
+                   
+                    <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                    </div>
+                 
+                </div>
+              
+                <div class="navigation-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>
+                </div>
+            </div>
+        
+
+        <div class="container">
+            
+            <div class="grid wide">
+                <div class="row">
+                    <div class="col l-12 m-12 c-12">
+                        <h1 class="container__heading">LATEST PRODUCTS</h1>
+                        <div class="home__product">
+                            <div class="row">
+                                <div class="col l-3 m-6 c-12">
+                                    <a href="#" class="home__product-item">
+                                        <div class="home__product-item-img">
+                                            <img src="./assets/img/iphone13.png" alt="">
+                                        </div>
+
+                                        <div class="home__product-item-description">
+                                            <h4>IPHONE 13 Pro new 100%</h4>
+                                        </div>
+
+                                        <div class="home__product-item-appreciate">
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star-half-alt"></i>
+                                           </div>
+                                           <span>(1 Reviewer)</span>
+                                        </div>
+
+                                        <div class="home__product-item-prices">
+                                            <h4>$5000</h4>
+                                        </div>
+
+                                        <div class="home__product-item-btn">
+                                            <button>View Info</button>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col l-3 m-6 c-12">
+                                    <a href="#" class="home__product-item">
+                                        <div class="home__product-item-img">
+                                            <img src="./assets/img/13promax.jpg" alt="">
+                                        </div>
+
+                                        <div class="home__product-item-description">
+                                            <h4>IPHONE 13 Pro max new 100%</h4>
+                                        </div>
+
+                                        <div class="home__product-item-appreciate">
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <span>(1 Reviewer)</span>
+                                        </div>
+
+                                        <div class="home__product-item-prices">
+                                            <h4>$5000</h4>
+                                        </div>
+
+                                        <div class="home__product-item-btn">
+                                            <button>View Info</button>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col l-3 m-6 c-12">
+                                    <a href="#" class="home__product-item">
+                                        <div class="home__product-item-img">
+                                            <img src="./assets/img/13.jpg" alt="">
+                                        </div>
+
+                                        <div class="home__product-item-description">
+                                            <h4>IPHONE 13 new 100%</h4>
+                                        </div>
+
+                                        <div class="home__product-item-appreciate">
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star-half-alt"></i>
+                                           </div>
+                                           <span>(1 Reviewer)</span>
+                                        </div>
+
+                                        <div class="home__product-item-prices">
+                                            <h4>$5000</h4>
+                                        </div>
+
+                                        <div class="home__product-item-btn">
+                                            <button>View Info</button>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col l-3 m-6 c-12">
+                                    <a href="#" class="home__product-item">
+                                        <div class="home__product-item-img">
+                                            <img src="./assets/img/13mini.jpg" alt="">
+                                        </div>
+
+                                        <div class="home__product-item-description">
+                                            <h4>IPHONE 13 mini new 100%</h4>
+                                        </div>
+
+                                        <div class="home__product-item-appreciate">
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class=" appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <div class="appreciate-item">
+                                            <i class="appreciate-item-btn fas fa-star"></i>
+                                           </div>
+                                           <span>(1 Reviewer)</span>
+                                        </div>
+
+                                        <div class="home__product-item-prices">
+                                            <h4>$5000</h4>
+                                        </div>
+
+                                        <div class="home__product-item-btn">
+                                            <button>View Info</button>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <div class="pagination__list">
+                <div class="pagination__list-item">First</div>
+                <div class="pagination__list-item">Prev</div>
+                <div class="pagination__list-item pagination__list-item-active">1</div>
+                <div class="pagination__list-item">2</div>
+                <div class="pagination__list-item">3</div>
+                <div class="pagination__list-item">Next</div>
+                <div class="pagination__list-item">Last</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

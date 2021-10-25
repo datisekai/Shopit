@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            margin: 0 10px;
+        }
+        ul{
+        margin-top:0px;
+        }
+        .menu ul a{
+            color:#FFFFFF;
+            
+        }
+        .menu li{
+            margin-right:0px;
+            margin-top:0px;
+            padding-top:0px;
+            background-color:#669966;
+            font-size:20px;
+            display:inline-table;
+            height:30px;
+            line-height:40px;
+            padding-left:15px;
+            padding-right:15px;
+        }
+        .menu li:hover{
+            background-color:#FF0000;
+            font-style:italic;
+        }
+        .leftmenu{
+            font-size:14px;
+            color:#FFFFFF;
+            background-color:#66CC66;
+            font-size:16px;
+            
+        }
+        .leftmenu a{
+            text-decoration:none;
+            color:#0000FF
+        }
+        .leftmenu ul{
+            /*list-style:disc*/
+            list-style:hiragana;
+            /*list-style-image:url(img/icon.PNG);*/
+            list-style-position: inside;
+        }
+        .leftmenu li{
+            display:list-item;
+            background-color:#33CC66;
+            border:#FF0000 solid 2px;
+            margin-left:-40px;
+            padding-left:15px;
+        
+        }
+        
+        .leftmenu li:hover{
+            background-color:#FFFFFF
+        }
+        
+        .leftmenu div{
+            border:solid #FF0000 2px;
+            border-radius:15px;
+        }
+        
+        .leftmenu div div:hover{
+            background-color:#996666;
+            font-style:italic
+        }
+        #content{
+            background-color:#669999;
+            height:600px;
+            border:#FF0000 solid 2px;
+        }
+        
+        .divproduct:first-child{
+            background-color:#99FF00;
+            margin-left:45px;
+        }
+        .divproduct{
+            width:19%;
+            height:250px;
+            border:#FF0000 solid 3px;
+            float:left;
+            margin-top:15px;
+            margin-bottom:15px;
+            margin-right:15px;
+            margin-left:30px
+            }
+        #pagenumber{
+            text-align:center;
+            background-color:#FFFF00;
+            width:100%;
+            border:#996600 solid 2px;
+            height:45px;
+            display:inline-table;
+            text-align: center;
+        }
+        #pagenumber div{
+            width:40px;
+            height:40px;
+            background-color:#99FF00;
+            display:inline-table;
+            line-height:40px;
+            border:#0000FF solid 2px;
+        
+        }
+        #pagenumber div:hover{
+            background-color:#FF0000;
+        }
+        
+        #homepage{
+            width:100%;
+            height:600px;
+            
+        }
+        #slideshow{
+            width:100%;
+            height:300px;
+            border:#FF0000 solid 2px;
+            position:relative;	
+            background-color:#99FF00;
+            z-index:10;
+        }
+        #imgnext{
+            
+            background-color:#FFFFFF;
+            position:absolute;
+            width:40px;
+            height:40px;
+            left:10px;
+            top:40%;
+            z-index:20;
+            
+        }
+        #imgnext:hover{
+            background-color:#FF0000;
+        }
+        #imgpre{
+            
+            background-color:#FFFFFF;
+            position:absolute;
+            width:40px;
+            height:40px;
+            right:10px;
+            top:40%;
+            z-index:20;
+        }
+        #imgpre:hover{
+            background-color:#FF0000;
+        }
+        </style>
+        <script>
+        function create_menu()
+        {
+            var product=["Máy tính Asus","Máy tính HP","Máy tính Lenovo","Máy tính Dell","Máy tính Fujitsu"];
+                        var s="";
+                        for(i=0;i<product.length;i++)
+                        {	var a='<a href="position.html?’+i+’"><li onclik="show1(this); ">’+ product[i] + ‘</li></a>’;
+                            s+=a;
+                        }
+                        //alert(s);
+                        s=’<ul>’+s+’</ul>’;
+                        document.getElementById("javacriptmenu").innerHTML=s;
+                        //console.log(s);
+        }
+        
+        var a;
+        function show1(obj)
+        {
+            a=obj;
+            console.log(a.id);
+            switch(a.id)
+            {
+                case ‘tc’:
+                {	
+                    document.getElementById("content").innerHTML=’<div 	
+                    id=”homepage”><div id=”slideshow”><div 						id=”imgnext”></div><div 	id=”imgpre”></div></div></div>’;
+                    break;
+                    
+                }	
+                case ‘gt’: 
+                {								
+                    document.getElementById(“content”).innerHTML=’<div>
+            Bạn chọn tư vấn</div>’;
+                    break;
+                }
+                case ‘tv’: 
+                {
+                                                                                document.getElementById(“content”).innerHTML=’<div>
+            Bạn chọn tư vấn</div>’;
+                    break;
+                }
+                default:
+                {
+                    document.getElementById(“content”).innerHTML=’’;
+                    break;
+                }
+            }
+            
+        }
+        function show_menu()
+        {
+            var url = window.location.href;
+            //alert(url);
+            var id = url.split(‘?’);
+            id= parseInt(id[1]);
+            console.log(id);
+            switch(id)
+            {
+                case 0:
+                {	
+                    document.getElementById("content").innerHTML="<div>
+            Máy tính Asus</div>";					document.getElementById("content").innerHTML="<div>
+            Máy tính HP"	
+                    break;
+                }	
+                case 1: 
+                {
+                    document.getElementById("content").innerHTML="<div>Máy
+                     tính HP</div>";
+                    break;
+                }
+                case 2: 
+                {
+                document.getElementById("content").innerHTML="<div>Máy 	
+                    document.getElementById("content").innerHTML="<div>Máy
+                     tính HP</div>";
+                    break;
+                }
+                default:
+                {
+                    document.getElementById(“content”).innerHTML=’’;
+                    break;
+                }
+            }
+        }
+        </script>
+        </head>
+        <body leftmargin=”0px”>
+        <script>
+        
+        
+        window.onload = function()
+        {			
+            create_menu();	
+        }
+        </script>
+        <div style=”border:solid 3px #990033; border-radius:15px”>
+            <div style=”width:100%; height:150px; background-color:#333300; position:relative”>header
+                <div style=”position:absolute; top:50px; left:270px; font-size:36px; color:#FFFFFF; font-style:oblique”>vi trí bất kỳ</div>
+                <img src=”img/logosgu.jpg” style=”border-radius:100%; width:100px; height:100px; position:absolute; top:0px; border:#FF0000 solid 5px; top:30px; left:150px” />
+            </div>
+            <div class=”menu” style=”width:100%; background-color:#CCFF00; height:40px”>
+                <ul>
+                    <a href=”#”><li id=’tc’ onclick=”show1(this);”>Trang chủ</li></a>
+                    <a href=”#”>
+                    <li id=’gt’ onclick=”show1(this);”>Giới thiệu</li></a>
+                    <a href=”#”><li id=’tv’ onclick=”show1(this);”>Tư vấn</li></a>
+                    <a href=”#”><li id=’lh’ onclick=”show1(this);”>Liên hệ</li></a>
+                </ul>
+            </div>
+            <div>
+                <div class=”leftmenu” style=”float:left; width:20%; background-color:#339933”>
+                    <div  style=” margin-top:0px; list-style-type:disc”>
+                        <ul>
+                            <a href=”#”><li>Máy tính Asus</li></a>
+                            <a href=”#”><li>Máy tính HP</li></a>
+                            <a href=”#”><li>Máy tính Lenovo</li></a>
+                            <a href=”#”><li>Máy tính Dell</li></a>
+                        </ul>
+                    </div>
+                    <!—Sử dụng javascript 
+                    <div id=”javacriptmenu” style=” margin-top:15px; list-style-type:disc”>	
+                    </div>
+                    <!—Ket thu phan hien thị left menu 
+                </div>
+                <div style=”float:left; width:80%; background-color:#009999”>
+                  <div id=”content”>
+                      <div style=”width:100%; border:#0000FF solid 3px” align=”center”>
+                        <div class=”divproduct”></div>
+                        <div class=”divproduct”></div>
+                        <div class=”divproduct”></div>
+                        <div class=”divproduct”></div>
+                        <div style=”clear:both”></div>
+                    </div>
+			<div style=”width:100%; border:#0000FF solid 3px” align=”center”>
+				<div class=”divproduct”></div>
+				<div class=”divproduct”></div>
+				<div class=”divproduct”></div>
+				<div class=”divproduct”></div>
+				<div style=”clear:both”></div>
+			</div>
+		  </div>
+		 <div id=”pagenumber” style=”clear:both” align=”center”>
+		 	<div>1</div>
+			<div>2</div>
+			<div>3</div>
+		 </div>	
+		</div>
+		<div style=”clear:both”></div>
+	</div>
+	<div style=”width:100%; height:150px; background-color:#FF0000”>footer</div>
+</div>
+</body>
+</html>
+        
