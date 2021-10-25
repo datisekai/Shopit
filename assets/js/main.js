@@ -33,6 +33,7 @@ var ipPass = document.getElementById('password');
 
 var formLogin = document.getElementById('form-login');
 var user_display = document.querySelector("#user__display");
+var clickLogin = document.querySelector('.modal__content-btn');
 
 if(sessionStorage.getItem('user') == CORRECT_USER && sessionStorage.getItem('password') == CORRECT_PASS)
 {
@@ -44,14 +45,15 @@ else {
 
 
 if(formLogin.attachEvent){
-    formLogin.attachEvent('submit', onFormLogin);
+    clickLogin.addEventListener('click', onFormLogin);
 }
 else {
-    formLogin.addEventListener('submit', onFormLogin);
+    clickLogin.addEventListener('click', onFormLogin);
 }
 
 function onFormLogin(e)
 {
+
     var username = ipUser.value;
     var password = ipPass.value;
 
@@ -62,12 +64,17 @@ function onFormLogin(e)
         if(sessionStorage.getItem('user') == CORRECT_USER && sessionStorage.getItem('password') == CORRECT_PASS)
         {
            alert("Login thành công!");
+           window.location = "index.html";
            userDisplay.textContent = sessionStorage.getItem('user');
            modalLogin.classList.remove('active-open');
+           e.preventDefault();
+        
         }
         else {
            alert("Username or password not match");
+           
     }
+    
     
 }
 
