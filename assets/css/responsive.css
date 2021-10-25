@@ -13,7 +13,7 @@
     }
 
     .modal__content{
-        top: 20%;
+        top: 5%;
         left: 15%;
         width: 70%;
         padding-top: 8px;
@@ -32,4 +32,24 @@
         display: flex;
       
       }
+
+     
+    
+}
+
+@media (min-width: 740px) and (max-width: 1113px)
+{
+    .modal__content{
+        top: 10%;
+        left: 30%;
+        width: 40%;
+        padding-top: 8px;
+        padding-bottom: 16px;
+        background-color: white;
+        z-index: 11;
+        position: absolute;    
+        border-radius: 5px;
+        animation: .5s ease-in transitionY;
+    }
+    
 }
