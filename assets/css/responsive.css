@@ -33,7 +33,12 @@
       
       }
 
-     
+      .container__heading{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
     
 }
 
@@ -50,6 +55,13 @@
         position: absolute;    
         border-radius: 5px;
         animation: .5s ease-in transitionY;
+    }
+
+    .container__heading{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 30px;
+        margin-bottom: 30px;
+        text-align: center;
     }
     
 }
