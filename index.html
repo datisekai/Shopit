@@ -11,12 +11,18 @@
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
 </head>
+<script>
+    
+</script>
 <body>
     <div class="main">
         
         <div class="header">
             <div class="header__logo">
-                <img src="./assets/img/logo1.png" alt="" class="header__logo-img">
+                <a href="">
+
+                    <img src="./assets/img/logo1.png" alt="" class="header__logo-img" id="logout">
+                </a>
             </div>
 
             <div class="header__search">
@@ -52,19 +58,26 @@
                     
                 <div class="modal__content-heading">Login</div>
 
-                <form action="index.html" method="POST" id="form-login" role="form">
+                <form action="index.html" method="POST" id="form-login" role="form" name="login">
                     <div class="modal__content-list">
-                        <label for="username" class="modal__content-des">Tài khoản</label>
+                        
+                        <!-- <label for="username" class="modal__content-des">Username</label> -->
                         <input type="text" placeholder="Enter your username......" name="username" id="username" class="modal__content-item">
                     </div>
                 
                     <div class="modal__content-list">
-                        <label for="password" class="modal__content-des">Mật khẩu</label>
-                        <input type="text" placeholder="Enter your password......" name="password" id="password" class="modal__content-item">
+                        <!-- <label for="password" class="modal__content-des">Password</label> -->
+                        <input type="password" placeholder="Enter your password......" name="password" id="password" class="modal__content-item">
+                    </div>
+
+                    <div class="modal__content-list" id="modal__email" style="display: none;">
+                        <!-- <label for="password" class="modal__content-des">Email</label> -->
+                        <input type="text" placeholder="Enter your email......" name="email" id="email" class="modal__content-item">
                     </div>
 
                     <div class="modal__content-list">
-                        <input type="button" name="button" value="LOGIN" class="modal__content-btn">    
+                        <input type="button" name="button" value="LOGIN" class="modal__content-btn" id="login">   
+                        <input type="button" name="button" value="REGISTER" class="modal__content-btn" style="display: none;" id="register"> 
                     </div>
                 
                     <p class="modal__content-login-other">or sign in with</p>
@@ -75,7 +88,8 @@
                         <div class="modal__content-social-item"><i class="social-item fab fa-github"></i></div>
                     </div>
 
-                    <p class="modal__content-sign-up">Bạn chưa có tài khoản? <a href="" class="modal__content-sign-up-btn">Sign up</a></p>
+                    <p class="modal__content-sign-up" id="modal-signup">Do not have an account?<a class="modal__content-sign-up-btn" id="signup">Sign up</a></p>
+                    <p class="modal__content-sign-up" style="display:none;" id="modal-signin">Do you already have an account?<a class="modal__content-sign-up-btn" id="signin">Sign in</a></p>
 
                     <div class="modal__content-btn-close">
                         <i class="btn-close far fa-times-circle"></i>
@@ -84,6 +98,29 @@
 
             </div>
 
+        </div>
+        
+        <div class="modal__product">
+            <div class="modal__product-overlay"></div>
+            <div class="modal__product-content">
+                <div class="modal__product-img">
+                    <img src="./assets/img/13mini.jpg" alt="">
+                </div>
+
+                <div class="modal__product-info">
+                    <div class="modal__product-info-name">
+                        <h3>IPHONE 13 MINI NEW 100%</h3>
+                    </div>
+
+                    <div class="modal__product-info-prices">
+                        <p>$500</p>
+                    </div>
+
+                    <div class="modal__product-info-quantify">
+                        <i class="far fa-minus-square"></i><input type="text" readonly value="1 "><i class="far fa-plus-square"></i>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="slider">
@@ -127,161 +164,76 @@
                         <h1 class="container__heading">LATEST PRODUCTS</h1>
                         <div class="home__product">
                             <div class="row">
-                                <div class="col l-3 m-6 c-12">
-                                    <a href="#" class="home__product-item">
-                                        <div class="home__product-item-img">
-                                            <img src="./assets/img/iphone13.png" alt="">
-                                        </div>
+                                <script>
+                                        var arrProduct = [
+                                        {
+                                            img:'iphone13.png',
+                                            name: 'IPHONE 13 Pro new',
+                                            prices: '1200'
+                                        },
 
-                                        <div class="home__product-item-description">
-                                            <h4>IPHONE 13 Pro new 100%</h4>
-                                        </div>
+                                        {
+                                            img: '13promax.jpg',
+                                            name: 'IPHONE 13 Pro max new',
+                                            prices: '2000'
+                                        },
 
-                                        <div class="home__product-item-appreciate">
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star-half-alt"></i>
-                                           </div>
-                                           <span>(1 Reviewer)</span>
-                                        </div>
+                                        {
+                                            img: '13.jpg',
+                                            name: 'IPHONE 13 64GB new',
+                                            prices: '1000'
+                                        },
 
-                                        <div class="home__product-item-prices">
-                                            <h4>$5000</h4>
-                                        </div>
+                                        {
+                                            img: '13mini.jpg',
+                                            name: 'IPHONE 13 mini new',
+                                            prices: '800'
+                                        },
 
-                                        <div class="home__product-item-btn">
-                                            <button>View Info</button>
-                                        </div>
-                                    </a>
-                                </div>
+                                        {
+                                            img: '13mini.jpg',
+                                            name: 'IPHONE 13 mini new',
+                                            prices: '800'
+                                        },
+                                        
+                                        {
+                                            img: '13mini.jpg',
+                                            name: 'IPHONE 13 mini new',
+                                            prices: '800'
+                                        },
 
-                                <div class="col l-3 m-6 c-12">
-                                    <a href="#" class="home__product-item">
-                                        <div class="home__product-item-img">
-                                            <img src="./assets/img/13promax.jpg" alt="">
-                                        </div>
+                                        {
+                                            img: '13mini.jpg',
+                                            name: 'IPHONE 13 mini new',
+                                            prices: '800'
+                                        },
 
-                                        <div class="home__product-item-description">
-                                            <h4>IPHONE 13 Pro max new 100%</h4>
-                                        </div>
+                                        {
+                                            img: '13mini.jpg',
+                                            name: 'IPHONE 13 mini new',
+                                            prices: '800'
+                                        }
 
-                                        <div class="home__product-item-appreciate">
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <span>(1 Reviewer)</span>
-                                        </div>
-
-                                        <div class="home__product-item-prices">
-                                            <h4>$5000</h4>
-                                        </div>
-
-                                        <div class="home__product-item-btn">
-                                            <button>View Info</button>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col l-3 m-6 c-12">
-                                    <a href="#" class="home__product-item">
-                                        <div class="home__product-item-img">
-                                            <img src="./assets/img/13.jpg" alt="">
-                                        </div>
-
-                                        <div class="home__product-item-description">
-                                            <h4>IPHONE 13 new 100%</h4>
-                                        </div>
-
-                                        <div class="home__product-item-appreciate">
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star-half-alt"></i>
-                                           </div>
-                                           <span>(1 Reviewer)</span>
-                                        </div>
-
-                                        <div class="home__product-item-prices">
-                                            <h4>$5000</h4>
-                                        </div>
-
-                                        <div class="home__product-item-btn">
-                                            <button>View Info</button>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col l-3 m-6 c-12">
-                                    <a href="#" class="home__product-item">
-                                        <div class="home__product-item-img">
-                                            <img src="./assets/img/13mini.jpg" alt="">
-                                        </div>
-
-                                        <div class="home__product-item-description">
-                                            <h4>IPHONE 13 mini new 100%</h4>
-                                        </div>
-
-                                        <div class="home__product-item-appreciate">
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class=" appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <div class="appreciate-item">
-                                            <i class="appreciate-item-btn fas fa-star"></i>
-                                           </div>
-                                           <span>(1 Reviewer)</span>
-                                        </div>
-
-                                        <div class="home__product-item-prices">
-                                            <h4>$5000</h4>
-                                        </div>
-
-                                        <div class="home__product-item-btn">
-                                            <button>View Info</button>
-                                        </div>
-                                    </a>
-                                </div>
+                                        ];
+                                        var i = 0;
+                                          while(i<arrProduct.length)
+                                          {
+  
+                                              var s = '<div class="col l-3 m-6 c-12"> <a href="index.html?id='+i+'" class="home__product-item"><div class="home__product-item-img"> <img src="./assets/img/'+arrProduct[i].img+'" alt=""> </div>'+
+                                              ' <div class="home__product-item-description"><h4>'+arrProduct[i].name+'</h4></div>' + 
+                                              '<div class="home__product-item-appreciate"><div class="appreciate-item"> <i class="appreciate-item-btn fas fa-star"></i> </div>' +
+                                              '<div class="appreciate-item"><i class="appreciate-item-btn fas fa-star"></i></div>' +
+                                              '<div class="appreciate-item"><i class="appreciate-item-btn fas fa-star"></i></div>' +
+                                              '<div class="appreciate-item"><i class="appreciate-item-btn fas fa-star"></i></div>' +
+                                              '<div class="appreciate-item"><i class="appreciate-item-btn fas fa-star"></i></div>' + ' <span>(1 Reviewer)</span>' + '</div>' + 
+                                              '<div class="home__product-item-prices"><h4>$'+arrProduct[i].prices+'</h4> </div>'+
+                                              '<div class="home__product-item-btn"><button>View Info</button></div>' +
+                                              '</a> </div>';
+                                              document.write(s);
+                                              i++;
+                                          }
+                                </script>
+                                
                             </div>
                         </div>
                     </div>
@@ -291,16 +243,41 @@
 
         <div class="pagination">
             <div class="pagination__list">
-                <div class="pagination__list-item">First</div>
-                <div class="pagination__list-item">Prev</div>
-                <div class="pagination__list-item pagination__list-item-active">1</div>
-                <div class="pagination__list-item">2</div>
-                <div class="pagination__list-item">3</div>
-                <div class="pagination__list-item">Next</div>
-                <div class="pagination__list-item">Last</div>
+                <a href="index.html?page=0" class="pagination__list-link">
+
+                    <div class="pagination__list-item">First</div>
+                </a>
+                <script>
+                   
+                </script>
+                <a href="" class="pagination__list-link">
+
+                    <div class="pagination__list-item">Prev</div>
+                </a>
+                <a href="index.html?page=1" class="pagination__list-link">
+
+                    <div class="pagination__list-item pagination__list-item-active">1</div>
+                </a>
+                <a href="index.html?page=2" class="pagination__list-link">
+
+                    <div class="pagination__list-item">2</div>
+                </a>
+                <a href="index.html?page=3" class="pagination__list-link">
+
+                    <div class="pagination__list-item">3</div>
+                </a>
+                <a href="" class="pagination__list-link">
+
+                    <div class="pagination__list-item">Next</div>
+                </a>
+                <a href="" class="pagination__list-link">
+
+                    <div class="pagination__list-item">Last</div>
+                </a>
             </div>
         </div>
 
+        
     </div>
 
     <script src="./assets/js/main.js"></script>
