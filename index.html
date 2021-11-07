@@ -12,7 +12,64 @@
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
 </head>
 <script>
-    
+    var arrProduct = [
+                                        {
+                                            id: "1",
+                                            img:'iphone13.png',
+                                            name: 'IPHONE 13 Pro new',
+                                            prices: '1200'
+                                        },
+
+                                        {
+                                            id: "2",
+                                            img: '13promax.jpg',
+                                            name: 'IPHONE 13 Pro max new',
+                                            prices: '2000'
+                                        },
+
+                                        { 
+                                            id: "3",
+                                            img: '13.jpg',
+                                            name: 'IPHONE 13 64GB new',
+                                            prices: '1000'
+                                        },
+
+                                        {
+                                            id: "4",
+                                            img: '13mini.jpg',
+                                            name: 'IPHONE 13 mini new',
+                                            prices: '800'
+                                        },
+
+                                        {
+                                            id: "5",
+                                            img: '13mini.jpg',
+                                            name: 'IPHONE 13 mini new',
+                                            prices: '800'
+                                        },
+                                        
+                                        {
+                                            id: "6",
+                                            img: '13mini.jpg',
+                                            name: 'IPHONE 13 mini new',
+                                            prices: '800'
+                                        },
+
+                                        {
+                                            id: "7",
+                                            img: '13mini.jpg',
+                                            name: 'IPHONE 13 mini new',
+                                            prices: '800'
+                                        },
+
+                                        {
+                                            id: "8",
+                                            img: '13mini.jpg',
+                                            name: 'IPHONE 13 mini new',
+                                            prices: '800'
+                                        }
+
+                                        ];
 </script>
 <body>
     <div class="main">
@@ -25,7 +82,7 @@
                 </a>
             </div>
 
-            <div class="header__search">
+            <div class="header__search hide-on-tablet">
 
                 <div class="header__search-input">
                     <input type="text" placeholder="Search something........." class="search-input">
@@ -43,8 +100,12 @@
                     <i class="cart-btn fas fa-cart-plus"></i>
                 </div>
 
-                <div class="header__login">
+                <div class="header__login hide-on-tablet hide-on-mobile">
                     <a id="user__display" class="header__login-btn">Login</a>
+                </div>
+
+                <div class="header__bars hide-on-pc" id="barsBtn">
+                    <i class="bars-btn fas fa-bars"></i>
                 </div>
           
             </div>
@@ -60,19 +121,22 @@
 
                 <form action="index.html" method="POST" id="form-login" role="form" name="login">
                     <div class="modal__content-list">
-                        
+                        <p id="errorLogin"></p>
                         <!-- <label for="username" class="modal__content-des">Username</label> -->
                         <input type="text" placeholder="Enter your username......" name="username" id="username" class="modal__content-item">
+                        <p id="errorUser"></p>
                     </div>
                 
                     <div class="modal__content-list">
                         <!-- <label for="password" class="modal__content-des">Password</label> -->
                         <input type="password" placeholder="Enter your password......" name="password" id="password" class="modal__content-item">
+                        <p id="errorPass"></p>
                     </div>
 
                     <div class="modal__content-list" id="modal__email" style="display: none;">
                         <!-- <label for="password" class="modal__content-des">Email</label> -->
                         <input type="text" placeholder="Enter your email......" name="email" id="email" class="modal__content-item">
+                        <p id="errorEmail"></p>
                     </div>
 
                     <div class="modal__content-list">
@@ -99,26 +163,76 @@
             </div>
 
         </div>
-        
-        <div class="modal__product">
+       
+        <div class="modal__product" style="display:none;">
             <div class="modal__product-overlay"></div>
-            <div class="modal__product-content">
-                <div class="modal__product-img">
-                    <img src="./assets/img/13mini.jpg" alt="">
-                </div>
 
+            <div class="modal__product-content">
+                <div class="modal__product-img" id="imgModalProduct">
+                    <!-- <img src="" alt="" id="imgModalProduct"> -->
+                </div>
+                
                 <div class="modal__product-info">
-                    <div class="modal__product-info-name">
-                        <h3>IPHONE 13 MINI NEW 100%</h3>
+                    <div class="modal__product-info-name" id="nameModalProduct">
+                        <!-- <h3 id="textModalProduct">IPHONE 13 MINI NEW 100%</h3> -->
                     </div>
 
-                    <div class="modal__product-info-prices">
-                        <p>$500</p>
+                    <div class="modal__product-info-prices" id="pricesModalProduct">
+                        <!-- <p>Giá sản phẩm: <span>$500</span></p> -->
                     </div>
 
                     <div class="modal__product-info-quantify">
-                        <i class="far fa-minus-square"></i><input type="text" readonly value="1 "><i class="far fa-plus-square"></i>
+                        <p>Số lượng</p><br>
+                        <i class="btn-icon far fa-minus-square minus">
+                        </i><input type="text" readonly value="1" class="quatify">
+                        <i class="btn-icon far fa-plus-square plus"></i>
                     </div>
+
+                    <div class="modal__product-codesale">
+                        <p>Mã giảm giá</p>
+                        <input type="text" placeholder="Nhập vào mã giảm giá ........."  id="codesale">
+                    </div>
+                   
+
+                    <div class="modal__product-btn">
+                        <div class="btn__buynow">
+                            <input type="button" value="Mua ngay" id="buynow">
+                        </div>
+
+                        <div class="btn__addcart">
+                            
+                            <input type="button" value="Thêm vào giỏ hàng" id="addcart">
+                        </div>
+                    </div>
+
+                    <div class="modal__product-close"><i class="fas fa-times-circle"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal__bars">
+            <div class="modal__bars-overlay" id="barsOverlay"></div>
+
+            <div class="modal__bars-content" id="barsContent">
+                <div class="bars-close" id="barsClose">
+                    <i class="bars-close-btn fas fa-times"></i>
+                </div>
+
+                <div class="bars-search">
+                    <input type="text" placeholder="Search something....">
+                </div>
+
+                <div class="bars-category">
+                    <ul class="bars__list">
+                        <li class="bars__list-item" id="barsLogin">Login</li>
+                        <li class="bars__list-item" id="barsCategory">Category</li>
+                        <span style="display: none;" id="barCategoryClose"><i class="fas fa-window-close"></i></span>
+                        <ul class="bars-item-list" id="barsCategoryItem">
+                            <li class="bars-item-list-item">Iphone</li>
+                            <li class="bars-item-list-item">Macbook</li>
+                            <li class="bars-item-list-item">Airpod</li>
+                        </ul>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -160,66 +274,29 @@
             
             <div class="grid wide">
                 <div class="row">
-                    <div class="col l-12 m-12 c-12">
+                    <div class="col l-2 m-0 c-0">
+                        <div class="menu__product">
+                            <div class="menu__heading">Category</div>
+                            <ul class="menu__list">
+                                <li class="menu__list-item"><a href="index.html?product=1">IPHONE</a></li>
+                                <li class="menu__list-item"><a href="index.html?product=2">MACBOOK</a></li>
+                                <li class="menu__list-item"><a href="index.html?product=3">AIRPOD</a></li>
+                            </ul>
+                        </div>
+                        <div class="img-pr">
+                        </div>
+                    </div>
+                    <div class="col l-10 m-12 c-12">
                         <h1 class="container__heading">LATEST PRODUCTS</h1>
                         <div class="home__product">
                             <div class="row">
                                 <script>
-                                        var arrProduct = [
-                                        {
-                                            img:'iphone13.png',
-                                            name: 'IPHONE 13 Pro new',
-                                            prices: '1200'
-                                        },
-
-                                        {
-                                            img: '13promax.jpg',
-                                            name: 'IPHONE 13 Pro max new',
-                                            prices: '2000'
-                                        },
-
-                                        {
-                                            img: '13.jpg',
-                                            name: 'IPHONE 13 64GB new',
-                                            prices: '1000'
-                                        },
-
-                                        {
-                                            img: '13mini.jpg',
-                                            name: 'IPHONE 13 mini new',
-                                            prices: '800'
-                                        },
-
-                                        {
-                                            img: '13mini.jpg',
-                                            name: 'IPHONE 13 mini new',
-                                            prices: '800'
-                                        },
                                         
-                                        {
-                                            img: '13mini.jpg',
-                                            name: 'IPHONE 13 mini new',
-                                            prices: '800'
-                                        },
-
-                                        {
-                                            img: '13mini.jpg',
-                                            name: 'IPHONE 13 mini new',
-                                            prices: '800'
-                                        },
-
-                                        {
-                                            img: '13mini.jpg',
-                                            name: 'IPHONE 13 mini new',
-                                            prices: '800'
-                                        }
-
-                                        ];
                                         var i = 0;
                                           while(i<arrProduct.length)
                                           {
   
-                                              var s = '<div class="col l-3 m-6 c-12"> <a href="index.html?id='+i+'" class="home__product-item"><div class="home__product-item-img"> <img src="./assets/img/'+arrProduct[i].img+'" alt=""> </div>'+
+                                              var s = '<div class="col l-3 m-6 c-12"> <div class="home__product-item" onclick="showModal('+i+')"><div class="home__product-item-img"> <img src="./assets/img/'+arrProduct[i].img+'" alt=""> </div>'+
                                               ' <div class="home__product-item-description"><h4>'+arrProduct[i].name+'</h4></div>' + 
                                               '<div class="home__product-item-appreciate"><div class="appreciate-item"> <i class="appreciate-item-btn fas fa-star"></i> </div>' +
                                               '<div class="appreciate-item"><i class="appreciate-item-btn fas fa-star"></i></div>' +
@@ -228,12 +305,46 @@
                                               '<div class="appreciate-item"><i class="appreciate-item-btn fas fa-star"></i></div>' + ' <span>(1 Reviewer)</span>' + '</div>' + 
                                               '<div class="home__product-item-prices"><h4>$'+arrProduct[i].prices+'</h4> </div>'+
                                               '<div class="home__product-item-btn"><button>View Info</button></div>' +
-                                              '</a> </div>';
+                                              '</div> </div>';
                                               document.write(s);
                                               i++;
                                           }
                                 </script>
-                                
+                            </div>
+                        </div>
+                        <div class="pagination">
+                            <div class="pagination__list">
+                                <a href="index.html?page=0" class="pagination__list-link">
+                
+                                    <div class="pagination__list-item">First</div>
+                                </a>
+                                <script>
+                                   
+                                </script>
+                                <a href="" class="pagination__list-link">
+                
+                                    <div class="pagination__list-item">Prev</div>
+                                </a>
+                                <a href="index.html?page=1" class="pagination__list-link">
+                
+                                    <div class="pagination__list-item pagination__list-item-active">1</div>
+                                </a>
+                                <a href="index.html?page=2" class="pagination__list-link">
+                
+                                    <div class="pagination__list-item">2</div>
+                                </a>
+                                <a href="index.html?page=3" class="pagination__list-link">
+                
+                                    <div class="pagination__list-item">3</div>
+                                </a>
+                                <a href="" class="pagination__list-link">
+                
+                                    <div class="pagination__list-item">Next</div>
+                                </a>
+                                <a href="" class="pagination__list-link">
+                
+                                    <div class="pagination__list-item">Last</div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -241,41 +352,6 @@
             </div>
         </div>
 
-        <div class="pagination">
-            <div class="pagination__list">
-                <a href="index.html?page=0" class="pagination__list-link">
-
-                    <div class="pagination__list-item">First</div>
-                </a>
-                <script>
-                   
-                </script>
-                <a href="" class="pagination__list-link">
-
-                    <div class="pagination__list-item">Prev</div>
-                </a>
-                <a href="index.html?page=1" class="pagination__list-link">
-
-                    <div class="pagination__list-item pagination__list-item-active">1</div>
-                </a>
-                <a href="index.html?page=2" class="pagination__list-link">
-
-                    <div class="pagination__list-item">2</div>
-                </a>
-                <a href="index.html?page=3" class="pagination__list-link">
-
-                    <div class="pagination__list-item">3</div>
-                </a>
-                <a href="" class="pagination__list-link">
-
-                    <div class="pagination__list-item">Next</div>
-                </a>
-                <a href="" class="pagination__list-link">
-
-                    <div class="pagination__list-item">Last</div>
-                </a>
-            </div>
-        </div>
 
         
     </div>

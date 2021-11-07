@@ -7,6 +7,7 @@
 .main{
     position: relative;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 
@@ -83,8 +84,17 @@
     font-size: 28px;
 }
 
+.bars-btn{
+    color: white;
+    font-size: 28px;
+}
+
 .header__login{
     margin-left: 20px;
+}
+
+.header__bars{
+
 }
 
 .header__login:hover{
@@ -373,7 +383,8 @@
         
   .first{
     
-    background-image: url(https://cellphones.com.vn/sforum/wp-content/uploads/2020/02/frozen-landscape-wallpaper-iphone-idownloadblog-ongliong11-mockup-1536x1024-1.png);
+    background-image: url(https://genk.mediacdn.vn/139269124445442048/2021/9/13/photo-1-1631488187952925878697.jpg);
+    /* background-image: url(https://didongviet.vn/tin-tuc/wp-content/uploads/2020/12/phuong-hang-duoc-anh-tam-t%E1%BA%A1ng-iphone12promax-didongviet.jpg); */
   }
   
   .second{
@@ -400,6 +411,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 30px;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .home__product{
@@ -418,6 +430,7 @@
   text-decoration: none;
   border-radius: 20px;
     padding: 8px;
+    
 }
 
 .home__product-item-description{
@@ -570,7 +583,10 @@
     height: 100%;
     text-align: center;
     position: absolute;
-    display: none;
+    display: flex;
+    justify-content: center;
+    
+    
 }
 
 .modal__product-overlay{
@@ -586,16 +602,291 @@
 }
 
 .modal__product-content{
-    width: 50%;
+   
     background-color: aliceblue;
     z-index: 11;
     display: flex;
     text-align: center;
+    margin: 10% auto;
     position: fixed;
-    top: 15%;
-    right: 25%;
+    border-radius: 10px;
+    animation: transitionY ease-in .4s;
+    padding: 16px;
 }
+
+
 
 .modal__product-info{
     text-align: center;
+    flex: 1;
+}
+
+.modal__product-info-name{
+    padding: 16px 8px;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.modal__product-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 25px;
+    padding: 4px;
+}
+
+.modal__product-img{
+    flex: 1;
+}
+
+.modal__product-img img{
+    width: 100%;
+}
+
+.modal__product-info-prices{
+    padding: 8px;
+    font-size: 22px;
+    font-family: sans-serif;
+}
+
+
+.btn-icon{
+    font-size: 22px;
+    text-align: center;
+}
+
+.btn-icon:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.modal__product-btn{
+    padding: 8px;
+   
+    display: flex;
+    justify-content: space-around;
+    
+   
+}
+
+.btn__buynow{
+   
+}
+
+#addcart,
+#buynow{
+    background-color: #FCB35F;
+    padding: 8px 12px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-radius: 6px;
+
+}
+#addcart:hover,
+#buynow:hover{
+    cursor: pointer;
+    opacity: 0.6;
+    color: red;
+}
+
+#addcart{
+    
+}
+
+.modal__product-info-quantify{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quatify{
+    width: 10%;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 16px;
+    border: none;
+}
+
+
+.modal__product-info-prices span {
+    color:#FCB35F; 
+    font-weight: 700;
+}
+
+.modal__product-info-quantify p{
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 8px;
+}
+
+.modal__product-codesale{
+    padding: 4px 8px;
+}
+
+.modal__product-codesale p{
+    font-size: 16px;
+    font-family: sans-serif;
+    padding-bottom: 4px;
+}
+
+#codesale {
+    padding: 4px 8px;
+    border: 1px solid #FCB35F;
+}
+
+.modal__product-close:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+/* Menu product */
+.menu__product{
+    margin-top: 25px;
+}
+
+.menu__list{
+    list-style: none;
+}
+
+.menu__list-item{
+    margin-top: 8px;
+    background-color: #FCB35F;
+    text-align: center;
+    border-radius: 5px;
+    padding: 6px 8px;
+}
+
+.menu__list-item:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.menu__list-item a{
+    text-decoration: none;
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.menu__heading{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    border-bottom: 3px solid black;
+    padding: 8px 0px;
+}
+
+.img-pr{
+    margin-top: 10px;
+    width: 100%;
+    height: 57%;
+    background-image: url(https://help.apple.com/assets/6131099BC85F872D4343C838/61314B490AA3FE346D6469E5/vi_VN/14d6549bd1742deb2de668ddb6452b57.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.hide-on-pc{
+    display: none;
+}
+/* Modal bars */
+.modal__bars-overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 10;
+    display: none;
+}
+
+.modal__bars{
+    width: 100%;
+    height: 100%;
+}
+
+.modal__bars-content{
+    position: fixed;
+    background-color: white;
+    width: 30%;
+    height: 100%;
+    z-index: 10;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: none;
+}
+
+.bars-close{
+    width: 20%;
+    padding: 16px;
+}
+
+.bars-close-btn{
+    font-size: 25px;
+}
+
+.bars-search{
+    padding: 16px;
+}
+
+.bars-search input{
+    padding: 6px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.bars-search input::placeholder{
+    font-family: sans-serif;
+}
+
+.bars-category{
+    padding: 16px;
+}
+
+.bars__list{
+    list-style: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.bars__list-item{
+    font-size: 18px;
+    margin-top: 12px;
+    border-bottom: 2px solid #333;
+    position: relative;
+}
+
+.bars__list-item:hover,
+.bars-item-list-item:hover{
+    cursor: pointer;
+    color: #FCB35F;
+}
+
+.bars-item-list{
+    text-align: left;
+    padding-left: 16px;
+    margin-top: 12px;
+    list-style: none;
+    display: none;
+}
+
+.bars-item-list-item{
+    font-size: 16px;
+    margin-top: 8px;
+    border-bottom: 2px solid #333;
+    padding-left: 16px;
+}
+
+.bars__list span{
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+    padding: 4px;
 }
