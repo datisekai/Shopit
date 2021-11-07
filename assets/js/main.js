@@ -8,6 +8,7 @@ if(!sessionStorage.getItem('user'))
 {
     btnLogin.addEventListener('click', function(){
         modalLogin.classList.add('active-open');
+        modalLogin.style.display = "block";
     });
 }
 // else {
@@ -73,6 +74,7 @@ function onFormLogin(e)
            window.location = "index.html";
            user_display.textContent = localStorage.getItem("user");
            modalLogin.classList.remove('active-open');
+           modalLogin.style.display = "none";
            e.preventDefault();
         
         }
