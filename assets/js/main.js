@@ -38,12 +38,15 @@ var user_display = document.querySelector("#user__display");
 var clickLogin = document.querySelector('.modal__content-btn');
 user_display.textContent = "LOGIN";
 if(sessionStorage.getItem('user') != "" && sessionStorage.getItem('password') != "" )
-if(sessionStorage.getItem('user') == localStorage.getItem('user') && sessionStorage.getItem('password') == localStorage.getItem('password'))
 {
-    user_display.textContent = sessionStorage.getItem('user');
-}
-else {
-    user_display.textContent = "LOGIN";
+
+    if(sessionStorage.getItem('user') == localStorage.getItem('user') && sessionStorage.getItem('password') == localStorage.getItem('password'))
+    {
+        user_display.textContent = sessionStorage.getItem('user');
+    }
+    else {
+        user_display.textContent = "LOGIN";
+    }
 }
 
 
