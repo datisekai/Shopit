@@ -78,7 +78,7 @@
             <div class="header__logo">
                 <a href="">
 
-                    <img src="./assets/img/logo1.png" alt="" class="header__logo-img" id="logout">
+                    <img src="./assets/img/logo1.png" alt="" class="header__logo-img">
                 </a>
             </div>
 
@@ -98,15 +98,27 @@
 
                 <div class="header__cart">
                     <i class="cart-btn fas fa-cart-plus"></i>
+                    <a href="" style="display: none;" id="cartQuatify">0</a>
                 </div>
 
                 <div class="header__login hide-on-tablet hide-on-mobile">
-                    <a id="user__display" class="header__login-btn">Login</a>
+                    <p id="user__display" class="header__login-btn">Login</p>
                 </div>
 
+                <div class="header__has__login hide-on-mobile hide-on-tablet" style="display: none;" id="hasLogin">
+                    <img src="./assets/img/avt.jpg" alt="">
+                    <span id="userLogin">Datisekai</span>
+                    <ul class="has__login-list">
+                        <li class="has__login-item"><a href="">Admin</a></li>
+                        <li class="has__login-item"><a href="">Đơn đặt hàng</a></li>
+                        <li class="has__login-item"><a href="">Địa chỉ</a></li>
+                        <li class="has__login-item"><a href="" id="logout">Đăng xuất</a></li>
+                    </ul>
+                </div>
                 <div class="header__bars hide-on-pc" id="barsBtn">
                     <i class="bars-btn fas fa-bars"></i>
                 </div>
+
           
             </div>
         </div>

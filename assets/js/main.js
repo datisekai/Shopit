@@ -7,7 +7,7 @@ var btnLogin = document.querySelector('.header__login');
 if(!sessionStorage.getItem('user'))
 {
     btnLogin.addEventListener('click', function(){
-        modalLogin.classList.add('active-open');
+       
         modalLogin.style.display = "block";
     });
 }
@@ -17,12 +17,12 @@ if(!sessionStorage.getItem('user'))
 //     });
 // }
 modalOverlay.addEventListener('click', function(){
-    modalLogin.classList.remove('active-open');
+   
     modalLogin.style.display = "none";
 });
 
 modalClose.addEventListener('click', function(){
-    modalLogin.classList.remove('active-open');
+    
     modalLogin.style.display = "none";
 });
 
@@ -38,15 +38,27 @@ var formLogin = document.getElementById('form-login');
 var user_display = document.querySelector("#user__display");
 var clickLogin = document.querySelector('.modal__content-btn');
 user_display.textContent = "LOGIN";
+var displayLogin = document.querySelector('.header__login');
+var hasLogin = document.getElementById('hasLogin');
+var userLogin = document.getElementById('userLogin');
+var flag;
 if(sessionStorage.getItem('user') != "" && sessionStorage.getItem('password') != "" )
 {
 
     if(sessionStorage.getItem('user') == localStorage.getItem('user') && sessionStorage.getItem('password') == localStorage.getItem('password'))
     {
-        user_display.textContent = sessionStorage.getItem('user');
+        displayLogin.style.display = "none";
+        hasLogin.style.display = "flex";
+        document.getElementById('cartQuatify').style.display = "inline-block";
+        userLogin.textContent = sessionStorage.getItem('user');
+        flag = true;
+       
     }
     else {
-        user_display.textContent = "LOGIN";
+        hasLogin.style.display = "none";
+        displayLogin.style.display = "block";
+        document.getElementById('cartQuatify').style.display = "none";
+        flag = false;
     }
 }
 
@@ -73,18 +85,27 @@ function onFormLogin(e)
            alert("Login thành công!");
            window.location = "index.html";
            user_display.textContent = localStorage.getItem("user");
-           modalLogin.classList.remove('active-open');
            modalLogin.style.display = "none";
-           e.preventDefault();
+           displayLogin.style.display = "none";
+           hasLogin.style.display = "flex";
+            document.getElementById('cartQuatify').style.display = "inline-block";
+            userLogin.textContent = sessionStorage.getItem('user');
+            flag = true;
         
         }
         else {
            errorLogin.textContent = "Username or password not match";
            errorLogin.style.color = "red";
+           flag = false;
            
     }
     
     
+}
+
+if(flag)
+{
+   document.querySelector('.bars__list-item:first-child').style.display = "none";
 }
 
 //xuly register

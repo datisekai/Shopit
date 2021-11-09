@@ -93,8 +93,96 @@
     margin-left: 20px;
 }
 
-.header__bars{
+.header__has__login{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
 
+.header__has__login img{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.header__has__login span{
+    color: #ddd;
+    text-align: center;
+    align-items: center;
+    padding: 4px;
+    font-family: sans-serif;
+    font-size: 13px;
+}
+
+.has__login-list{
+    margin-top: 4px;
+    border-radius: 5px;
+    position: absolute;
+    padding: 8px;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    box-shadow: 0 1px 5px #999;
+    background-color: whitesmoke;
+    width: 120px;
+    animation: fadeIn ease-in 0.5s;
+    display: none;
+}
+
+
+.has__login-list::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: -8px;
+    right: 0;
+    width: 100%;
+    height: 8px;
+    
+}
+
+.header__has__login:hover{
+    cursor: pointer;
+}
+
+.has__login-item a:hover{
+    color: #FCB35F;
+}
+
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.header__has__login:hover .has__login-list{
+    display: block;
+}
+
+.has__login-item{
+    padding: 8px 4px;
+    font-family: sans-serif;
+    font-size: 15px;
+    border-bottom: 2px solid black;
+}
+
+.has__login-item:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.has__login-item a{
+    text-decoration: none;
+    color: #333;
+}
+
+.header__bars:hover{
+    cursor: pointer;
+    opacity: 0.6;
 }
 
 .header__login:hover{
@@ -251,6 +339,24 @@
 
 .active-open{
     display: block;
+}
+
+.header__cart{
+    position: relative;
+}
+
+.header__cart a{
+    position: absolute;
+    text-decoration: none;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    font-weight: 600;
+    text-align: center;
+    font-family: sans-serif;
+    color: #FCB35F;
+    background-color: white;
+    border-radius: 50%;
 }
 
 .header__cart:hover{
