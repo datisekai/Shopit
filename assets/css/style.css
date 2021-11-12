@@ -1038,9 +1038,9 @@
 }
 
 #preLoader{
-    background: #0B1727 url(https://eng.kantiana.ru/images/loading.gif) no-repeat center center;
+    background: #0B1727 url(https://static.wixstatic.com/media/07cbd3_597548454e0b4271bbf494f9c1e09afd~mv2.gif) no-repeat center center;
     position: fixed;
     height: 100vh;
     width: 100%;
-    z-index: 100;
+    z-index: 99;
 }
