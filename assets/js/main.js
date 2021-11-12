@@ -27,7 +27,7 @@ function onLogin()
 
     for (var i=0;i<arrCustomer.length;i++)
     {
-        if (username == arrCustomer[i].user && password == arrCustomer[i].password)
+        if (username.toUpperCase() == arrCustomer[i].user.toUpperCase() && password == arrCustomer[i].password)
         {
             flag = 1;
             if(arrCustomer[i].level == 0) admin = true;
@@ -369,6 +369,11 @@ function renderContainerHeading()
     }
 }
 
+function renderEmptyProduct()
+{
+    document.getElementById('display_product').innerHTML = '<div id="errorSearch">Không tìm thấy sản phẩm</div>'
+}
+
 window.onload = function()
 {
 
@@ -383,6 +388,32 @@ checkSession();
 ///search
 function searchInfo()
 {
-    
+    txtSearch = document.getElementById('txtsearch').value;
+    if(txtSearch != '')
+    {
+        if(txtSearch.indexOf('iph') != -1)
+        {
+            window.location = 'index.html?product=iphone';
+        }
+        else if(txtSearch.indexOf('ipa') != -1)
+        {
+            window.location = 'index.html?product=ipad';
+        }
+        else if(txtSearch.indexOf('mac') != -1)
+        {
+            window.location = 'index.html?product=macbook';
+        }
+        else {
+            renderEmptyProduct();
+        }
+    }
 }
 
+function preLoading()
+{
+    var preLoader = document.getElementById('preLoader');
+    window.addEventListener('load', function(){
+        preLoader.style.display = "none";
+    });
+}
+preLoading();

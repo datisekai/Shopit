@@ -254,7 +254,7 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
 </script>
 <body>
     <div class="main">
-        
+        <div id="preLoader"></div>
         <div class="header">
             <div class="header__logo">
                 <a href="index.html">
@@ -266,10 +266,10 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
             <div class="header__search hide-on-tablet">
 
                 <div class="header__search-input">
-                    <input type="text" placeholder="Search something........." class="search-input" id="txtsearch" onchange="">
+                    <input type="text" placeholder="Search something........." class="search-input" id="txtsearch" onchange="searchInfo();">
                 </div>
                 
-                <div class="header__search-btn">
+                <div class="header__search-btn" onclick="searchInfo();">
                     <i class="search-btn fas fa-search"></i>
                 </div>
 
@@ -411,7 +411,7 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
                 </div>
 
                 <div class="bars-search">
-                    <input type="text" placeholder="Search something....">
+                    <input type="text" placeholder="Search something...." onchange="searchInfo();">
                 </div>
 
                 <div class="bars-category">
@@ -483,6 +483,7 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
                             <h1 class="container__heading" id="containerHeading">LATEST PRODUCTS</h1>
                             <div class="home__product">
                                 <div class="row" id="display_product">
+                                    
                                 </div>
                             </div>
 
