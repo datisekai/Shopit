@@ -50,7 +50,6 @@ function onLogin()
     else if(flag == -1){
         document.getElementById('errorLogin').textContent = "Username hoặc Password không chính xác!";
     }
-    e.preventDefault();
 }
 
 function onRegister()
@@ -110,7 +109,7 @@ function onRegister()
     }
 
 }
-console.log(sessionStorage.getItem('user'))
+
 function checkSession()
 {
     if(sessionStorage.getItem('user') != null)
@@ -126,7 +125,6 @@ function onLogOut()
     sessionStorage.removeItem('user');
 }
 
-console.log(sessionStorage.getItem('user'));
 function onSignUp()
 {
     document.querySelector('.modal__content-heading').textContent = "REGISTER";
@@ -288,7 +286,7 @@ function renderProduct(arrProduct)
     while (k<arrProductPag.length)
     {   
         
-        s = s + '<div class="col l-3 m-6 c-12"> <div class="home__product-item" onclick="showModal('+arrProductPag[k].id+')"><div class="home__product-item-img"> <img src="./assets/img/'+arrProductPag[k].img+'" alt=""> </div>'+
+        s = s + '<div class="col l-3 m-4 c-12"> <div class="home__product-item" onclick="showModal('+arrProductPag[k].id+')"><div class="home__product-item-img"> <img src="./assets/img/'+arrProductPag[k].img+'" alt=""> </div>'+
                 ' <div class="home__product-item-description"><h4>'+arrProductPag[k].name+'</h4></div>' + 
                 '<div class="home__product-item-appreciate"><div class="appreciate-item"> <i class="appreciate-item-btn fas fa-star"></i> </div>' +
                 '<div class="appreciate-item"><i class="appreciate-item-btn fas fa-star"></i></div>' +
@@ -355,6 +353,22 @@ function renderPagination()
         document.getElementById('page2').href = 'index.html?page=2';
         document.getElementById('page3').href = 'index.html?page=3';
     }
+
+    if(page ==1 )
+    {
+        document.getElementById('page1').style.backgroundColor = "#FCB35F";
+        document.getElementById('page1').style.color = "white";
+    } 
+    else if(page == 2)
+    {
+        document.getElementById('page2').style.backgroundColor = "#FCB35F";
+        document.getElementById('page2').style.color = "white";
+    }
+    else if(page == 3)
+    {
+        document.getElementById('page3').style.backgroundColor = "#FCB35F";
+        document.getElementById('page3').style.color = "white";
+    }
 }
 
 function renderContainerHeading()
@@ -386,9 +400,10 @@ window.onload = function()
 checkSession();
 
 ///search
-function searchInfo()
+function searchInfo(id)
 {
-    txtSearch = document.getElementById('txtsearch').value;
+    txtSearch = document.getElementById(id).value;
+    console.log(txtSearch);
     if(txtSearch != '')
     {
         if(txtSearch.indexOf('iph') != -1)
@@ -412,8 +427,14 @@ function searchInfo()
 function preLoading()
 {
     var preLoader = document.getElementById('preLoader');
-    window.addEventListener('load', function(){
-        preLoader.style.display = "none";
-    });
+    window.addEventListener('load', hideLoading);
 }
+
+function hideLoading()
+{
+    setTimeout(function(){
+        preLoader.style.display = "none";
+    },1500);
+}
+
 preLoading();

@@ -266,10 +266,10 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
             <div class="header__search hide-on-tablet">
 
                 <div class="header__search-input">
-                    <input type="text" placeholder="Search something........." class="search-input" id="txtsearch" onchange="searchInfo();">
+                    <input type="text" placeholder="Search something........." class="search-input" id="txtsearch" onchange="searchInfo('txtsearch');">
                 </div>
                 
-                <div class="header__search-btn" onclick="searchInfo();">
+                <div class="header__search-btn" onclick="searchInfo('txtsearch');">
                     <i class="search-btn fas fa-search"></i>
                 </div>
 
@@ -411,7 +411,7 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
                 </div>
 
                 <div class="bars-search">
-                    <input type="text" placeholder="Search something...." onchange="searchInfo();">
+                    <input type="text" placeholder="Search something...." onchange="searchInfo('txtsearch2');" id="txtsearch2">
                 </div>
 
                 <div class="bars-category">

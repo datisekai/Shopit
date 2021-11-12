@@ -282,6 +282,7 @@
     color: white;
     font-size: 16px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 4px;
 }
 
 .modal__content-social{
@@ -544,13 +545,17 @@
   margin-top: 10px;
   position: relative;
   box-shadow: 0 1px 5px #999;
-  /* Animation dịch lên 5px */
-  transition: tranform linear 0.5s;
   display: block;
   text-decoration: none;
   border-radius: 20px;
     padding: 8px;
     
+}
+
+.home__product-item:hover{
+    cursor: pointer;
+    /* Animation dịch lên 5px */
+    transform: translateY(-5px);
 }
 
 .home__product-item-description{
@@ -676,6 +681,7 @@
     border: none;
     color: black;
 }
+
 
 .pagination__list-link:hover{
     cursor: pointer;
