@@ -143,6 +143,7 @@ function onSignIn()
 arrCustomer = JSON.parse(localStorage.getItem('customer'));
 
 //Slider
+sliderRunning();
 function sliderRunning()
 {
 
@@ -156,6 +157,7 @@ function sliderRunning()
           }
         }, 3000);
 }
+
 // Render product
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
@@ -366,10 +368,11 @@ window.onload = function()
     renderDisplayProduct();
     renderPagination();
     renderContainerHeading();
-
+    
 }
 
 checkSession();
+
 ///search
 function searchInfo()
 {
