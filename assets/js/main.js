@@ -10,6 +10,7 @@ function hideLogin()
 function onLogin()
 {
     window.sessionStorage;
+    var admin = false;
     var username  = document.getElementById('username').value;
     var password  = document.getElementById('password').value;
     var flag = -1;
@@ -29,6 +30,7 @@ function onLogin()
         if (username == arrCustomer[i].user && password == arrCustomer[i].password)
         {
             flag = 1;
+            if(arrCustomer[i].level == 0) admin = true;
             break;
         }
     }
@@ -39,6 +41,11 @@ function onLogin()
         document.querySelector('.header__login').style.display = 'none';
         document.getElementById('hasLogin').style.display = 'flex';
         document.getElementById('userLogin').textContent = username;
+        if (admin == 1) document.getElementById('admin').style.display = "";
+        else {
+            document.getElementById('admin').style.display = "none";
+        }
+        
     }
     else if(flag == -1){
         document.getElementById('errorLogin').textContent = "Username hoặc Password không chính xác!";
