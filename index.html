@@ -214,6 +214,26 @@
         localStorage.setItem('product',JSON.stringify(arrProduct));
     
 }
+
+function createCustomer()
+{
+
+    var arrCustomer = [
+        {
+            user: 'admin',
+            password: 'admin',
+            email: 'lydatltd@gmail.com',
+            level: 0
+        },
+        {
+            user: 'datisekai',
+            password: 'bedatdz',
+            email: 'lydatltd@gmail.com',
+            level: 1
+        }
+    ];
+    localStorage.setItem('customer',JSON.stringify(arrCustomer));
+}
     function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split('&');
@@ -227,6 +247,8 @@
 window.onload = function()
 {
     createProduct();
+    createCustomer();
+    sliderRunning();
 }
 var arrProduct = JSON.parse(localStorage.getItem('product'));
 
@@ -261,18 +283,18 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
                     <a href="" style="display: none;" id="cartQuatify">0</a>
                 </div>
 
-                <div class="header__login hide-on-tablet hide-on-mobile">
+                <div class="header__login" onclick="displayLogin();">
                     <p id="user__display" class="header__login-btn">Login</p>
                 </div>
 
-                <div class="header__has__login hide-on-mobile hide-on-tablet" style="display: none;" id="hasLogin">
+                <div class="header__has__login" style="display: none;" id="hasLogin">
                     <img src="./assets/img/avt.jpg" alt="">
                     <span id="userLogin">Datisekai</span>
                     <ul class="has__login-list">
                         <li class="has__login-item"><a href="">Admin</a></li>
                         <li class="has__login-item"><a href="">Đơn đặt hàng</a></li>
                         <li class="has__login-item"><a href="">Địa chỉ</a></li>
-                        <li class="has__login-item"><a href="" id="logout">Đăng xuất</a></li>
+                        <li class="has__login-item"><a href="" id="logout" onclick="onLogOut();">Đăng xuất</a></li>
                     </ul>
                 </div>
                 <div class="header__bars hide-on-pc" id="barsBtn">
@@ -285,12 +307,11 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
 
         <div class="modal__login">
 
-            <div class="modal__overlay"></div>
+            <div class="modal__overlay" onclick="hideLogin();"></div>
 
             <div class="modal__content">
                     
                 <div class="modal__content-heading">Login</div>
-
                 <form action="index.html" method="POST" id="form-login" role="form" name="login">
                     <div class="modal__content-list">
                         <p id="errorLogin"></p>
@@ -312,8 +333,8 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
                     </div>
 
                     <div class="modal__content-list">
-                        <input type="button" name="button" value="LOGIN" class="modal__content-btn" id="login">   
-                        <input type="button" name="button" value="REGISTER" class="modal__content-btn" style="display: none;" id="register"> 
+                        <input type="button" name="button" value="LOGIN" class="modal__content-btn" id="login" onclick="onLogin();">   
+                        <input type="button" name="button" value="REGISTER" class="modal__content-btn" style="display: none;" id="register" onclick="onRegister();"> 
                     </div>
                 
                     <p class="modal__content-login-other">or sign in with</p>
@@ -324,10 +345,10 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
                         <div class="modal__content-social-item"><i class="social-item fab fa-github"></i></div>
                     </div>
 
-                    <p class="modal__content-sign-up" id="modal-signup">Do not have an account?<a class="modal__content-sign-up-btn" id="signup">Sign up</a></p>
-                    <p class="modal__content-sign-up" style="display:none;" id="modal-signin">Do you already have an account?<a class="modal__content-sign-up-btn" id="signin">Sign in</a></p>
+                    <p class="modal__content-sign-up" id="modal-signup">Do not have an account?<a class="modal__content-sign-up-btn" id="signup" onclick="onSignUp();">Sign up</a></p>
+                    <p class="modal__content-sign-up" style="display:none;" id="modal-signin">Do you already have an account?<a class="modal__content-sign-up-btn" id="signin" onclick="onSignIn();">Sign in</a></p>
 
-                    <div class="modal__content-btn-close">
+                    <div class="modal__content-btn-close" onclick="hideLogin();">
                         <i class="btn-close far fa-times-circle"></i>
                     </div>
                 </form>
@@ -396,7 +417,7 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
 
                 <div class="bars-category">
                     <ul class="bars__list">
-                        <li class="bars__list-item" id="barsLogin">Login</li>
+                        
                         <li class="bars__list-item" id="barsCategory">Category</li>
                         <span style="display: none;" id="barCategoryClose"><i class="fas fa-window-close"></i></span>
                         <ul class="bars-item-list" id="barsCategoryItem">
@@ -460,45 +481,20 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
                         </div>
                     </div>
                     <div class="col l-10 m-12 c-12">
-                       
-                            
-                            <h1 class="container__heading">LATEST PRODUCTS</h1>
+                            <h1 class="container__heading" id="containerHeading">LATEST PRODUCTS</h1>
                             <div class="home__product">
                                 <div class="row" id="display_product">
                                 </div>
                             </div>
-                       
-
 
                         <div class="pagination">
                             <div class="pagination__list">
-                                <script>
-                                    var prePage = 1;
-                                    if(parseInt(getQueryVariable('page')) > 1) prePage = parseInt(getQueryVariable('page')) - 1;
-                                    else {
-                                        prePage = 1;
-                                    }
-                                   var s = '<a href="index.html?page='+prePage+'" class="pagination__list-link"><div class="pagination__list-item">Prev</div></a>';
-                                   document.write(s);
-                                </script>
-                                <a href="index.html?page=1" class="pagination__list-link">
-                
-                                    <div class="pagination__list-item">1</div>
-                                </a>
-                                <a href="index.html?page=2" class="pagination__list-link">
-                
-                                    <div class="pagination__list-item">2</div>
-                                </a>
-                                <a href="index.html?page=3" class="pagination__list-link">
-                
-                                    <div class="pagination__list-item">3</div>
-                                </a>
-                                <script>
-                                    var nextPage = 1;
-                                    nextPage = parseInt(getQueryVariable('page')) + 1;
-                                   var s = '<a href="index.html?page='+nextPage+'" class="pagination__list-link"><div class="pagination__list-item">Next</div></a>';
-                                   document.write(s);
-                                </script>                           
+                                <a href="index.html" class="pagination__list-link"><div class="pagination__list-item">Home</div></a>
+                                <a href="" id="prePage" class="pagination__list-link"><div class="pagination__list-item">Prev</div></a>
+                                <a href="" class="pagination__list-link" id="page1"><div class="pagination__list-item">1</div></a>
+                                <a href="" class="pagination__list-link" id="page2"><div class="pagination__list-item">2</div></a>
+                                <a href="" class="pagination__list-link" id="page3"><div class="pagination__list-item">3</div></a> 
+                                <a href="" id="nextPage" class="pagination__list-link"><div class="pagination__list-item">Next</div></a>                      
                             </div>
                         </div>
                     </div>

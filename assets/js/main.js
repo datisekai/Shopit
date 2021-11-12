@@ -1,217 +1,161 @@
-
-var modalOverlay = document.querySelector('.modal__overlay');
-var modalLogin = document.querySelector('.modal__login');
-var modalClose = document.querySelector('.modal__content-btn-close');
-var btnLogin = document.querySelector('.header__login');
-
-if(!sessionStorage.getItem('user'))
+function displayLogin()
 {
-    btnLogin.addEventListener('click', function(){
-       
-        modalLogin.style.display = "block";
-    });
+    document.querySelector('.modal__login').style.display = "block";
 }
-// else {
-//     btnLogin.addEventListener('click', function(){
-//         window.open('info.html');
-//     });
-// }
-modalOverlay.addEventListener('click', function(){
-   
-    modalLogin.style.display = "none";
-});
 
-modalClose.addEventListener('click', function(){
-    
-    modalLogin.style.display = "none";
-});
-
-//xu ly login
-
-var CORRECT_USER = 'admin';
-var CORRECT_PASS = 'admin';
-window.sessionStorage;
-var ipUser = document.getElementById('username');
-var ipPass = document.getElementById('password');
-var errorLogin = document.getElementById('errorLogin');
-var formLogin = document.getElementById('form-login');
-var user_display = document.querySelector("#user__display");
-var clickLogin = document.querySelector('.modal__content-btn');
-user_display.textContent = "LOGIN";
-var displayLogin = document.querySelector('.header__login');
-var hasLogin = document.getElementById('hasLogin');
-var userLogin = document.getElementById('userLogin');
-var flag;
-if(sessionStorage.getItem('user') != "" && sessionStorage.getItem('password') != "" )
+function hideLogin()
 {
-
-    if(sessionStorage.getItem('user') == localStorage.getItem('user') && sessionStorage.getItem('password') == localStorage.getItem('password'))
+    document.querySelector('.modal__login').style.display = "none";
+}
+function onLogin()
+{
+    window.sessionStorage;
+    var username  = document.getElementById('username').value;
+    var password  = document.getElementById('password').value;
+    var flag = -1;
+    if(username == "")
     {
-        displayLogin.style.display = "none";
-        hasLogin.style.display = "flex";
-        document.getElementById('cartQuatify').style.display = "inline-block";
-        userLogin.textContent = sessionStorage.getItem('user');
-        flag = true;
-       
+        document.getElementById('errorUser').textContent = "Username không được bỏ trống";
+        flag = 0;
     }
-    else {
-        hasLogin.style.display = "none";
-        displayLogin.style.display = "block";
-        document.getElementById('cartQuatify').style.display = "none";
-        flag = false;
+    if(password == "")
+    {
+        document.getElementById('errorPass').textContent = "Password không được bỏ trống";
+        flag = 0;
     }
-}
 
-
-if(formLogin.attachEvent){
-    clickLogin.addEventListener('click', onFormLogin);
-}
-else {
-    clickLogin.addEventListener('click', onFormLogin);
-}
-
-function onFormLogin(e)
-{
-
-    var username = ipUser.value;
-    var password = ipPass.value;
-
-    sessionStorage.setItem('user',username);
-    sessionStorage.setItem('password',password);
-  
-
-        if(sessionStorage.getItem('user') == localStorage.getItem('user') && sessionStorage.getItem('password') == localStorage.getItem('password'))
+    for (var i=0;i<arrCustomer.length;i++)
+    {
+        if (username == arrCustomer[i].user && password == arrCustomer[i].password)
         {
-           alert("Login thành công!");
-           window.location = "index.html";
-           user_display.textContent = localStorage.getItem("user");
-           modalLogin.style.display = "none";
-           displayLogin.style.display = "none";
-           hasLogin.style.display = "flex";
-            document.getElementById('cartQuatify').style.display = "inline-block";
-            userLogin.textContent = sessionStorage.getItem('user');
-            flag = true;
-        
+            flag = 1;
+            break;
         }
-        else {
-           errorLogin.textContent = "Username or password not match";
-           errorLogin.style.color = "red";
-           flag = false;
-           
     }
-    
-    
+
+    if (flag==1){
+        sessionStorage.setItem('user',username);
+        hideLogin();
+        document.querySelector('.header__login').style.display = 'none';
+        document.getElementById('hasLogin').style.display = 'flex';
+        document.getElementById('userLogin').textContent = username;
+    }
+    else if(flag == -1){
+        document.getElementById('errorLogin').textContent = "Username hoặc Password không chính xác!";
+    }
+    e.preventDefault();
 }
 
-if(flag)
+function onRegister()
 {
-   document.querySelector('.bars__list-item:first-child').style.display = "none";
-}
-
-//xuly register
-var signUp = document.getElementById('signup');
-var signIn = document.getElementById('signin');
-var modalSignUp = document.getElementById('modal-signup');
-var modalSignIn = document.getElementById('modal-signin');
-var buttonLogin = document.getElementById('login');
-var buttonRegis = document.getElementById('register');
-var modalEmail = document.getElementById('modal__email');
-var modalHeading = document.querySelector('.modal__content-heading');
-
-signUp.addEventListener('click',onSignUp);
-
-signIn.addEventListener('click',onSignIn);
-
-function onSignIn(e)
-{
-    buttonLogin.style.display = "";
-    buttonRegis.style.display = "none";
-    modalSignUp.style.display = "";
-    modalSignIn.style.display = "none";
-    modalEmail.style.display = "none";
-    modalHeading.textContent = "LOGIN";
-}
-
-function onSignUp(e)
-{
-    buttonLogin.style.display = "none";
-    buttonRegis.style.display = "";
-    modalSignUp.style.display = "none";
-    modalSignIn.style.display = "";
-    modalEmail.style.display = "";
-    modalHeading.textContent = "REGISTER";
-}
-
-
-var ipEmail = document.getElementById('email');
-
-buttonRegis.addEventListener('click',onFomRegister);
-
-
-function onFomRegister(e)
-{
-    var username = ipUser.value;
-    var password = ipPass.value;
-    var email = ipEmail.value;
-    var checkRegister = true;
-   
-
+    var username  = document.getElementById('username').value;
+    var password  = document.getElementById('password').value;
+    var email = document.getElementById('email').value;
+    var flag = 1;
     if(username == "" || username.length < 5)
     {
-        document.getElementById('errorUser').textContent = "Username phải lớn hơn 5 kí tự!";
-        document.getElementById('errorUser').style.color = "red";
-        checkRegister = false;
+        document.getElementById('errorUser').textContent = "Username phải lớn hơn 5 kí tự";
+        flag = 0;
     }
-
     if(password == "" || password.length < 5)
     {
-        document.getElementById('errorPass').textContent = "Password phải lớn hơn 5 kí tự!";
-        document.getElementById('errorPass').style.color = "red";
-        checkRegister = false;
+        document.getElementById('errorPass').textContent = "Password phải lớn hơn 5 kí tự";
+        flag = 0;
+    }
+    if(email == "" || email.length < 5 || email.indexOf('@') == -1)
+    {
+        document.getElementById('errorEmail').textContent = "Email phải có @ và lớn hơn 5 kí tự";
+        flag = 0;
+    }
+    if(username != "" && password != "" && email != "")
+    {
+        for (var i=0;i<arrCustomer.length;i++)
+        {
+            if(username.toUpperCase() == arrCustomer[i].user.toUpperCase())
+            {
+                document.getElementById('errorLogin').textContent = "Username đã tồn tại";
+                flag = -1;
+                break;
+            }
+            if(email.toUpperCase() == arrCustomer[i].email.toUpperCase())
+            {
+                document.getElementById('errorLogin').textContent = "Email đã tồn tại";
+                flag = -1;
+                break;
+            }
+        }
     }
 
-    if(email == "" || email.indexOf("@") == -1)
+    if(flag == 1)
     {
-        document.getElementById('errorEmail').textContent = "Bạn phải nhập đúng định dạng email!";
-        document.getElementById('errorEmail').style.color = "red";
-        checkRegister = false;
-    }
-
-    if(checkRegister)
-    {
-        localStorage.setItem("user",username);
-        localStorage.setItem("password",password);
-        localStorage.setItem("email",email);
-        errorLogin.textContent = "Đăng kí thành công, vui lòng đăng nhập!";
-        errorLogin.style.color = "green";
-        errorLogin.style.padding = "0px 0px 4px 0px";
-        errorLogin.style.fontFamily = "sans-serif";
+        var customer = {
+            user: username,
+            password: password,
+            email: email,
+            level: 1
+        };
+        arrCustomer.push(customer);
+        console.log(arrCustomer);
+        document.getElementById('errorLogin').textContent = "Đăng kí thành công, vui lòng đăng nhập!";
+        document.getElementById('errorLogin').style.color = "green";
         onSignIn();
+        localStorage.setItem('customer',JSON.stringify(arrCustomer));
+    }
+
+}
+console.log(sessionStorage.getItem('user'))
+function checkSession()
+{
+    if(sessionStorage.getItem('user') != null)
+    {
+        document.querySelector('.header__login').style.display = 'none';
+        document.getElementById('userLogin').textContent = sessionStorage.getItem('user');
+        document.getElementById('hasLogin').style.display = 'flex';
     }
 }
 
-
-//xuly logout
-var btnLogout = document.getElementById('logout');
-
-btnLogout.addEventListener('click',onFormLogOut);
-
-function onFormLogOut(e)
+function onLogOut()
 {
     sessionStorage.removeItem('user');
-    sessionStorage.removeItem('password');
 }
 
+console.log(sessionStorage.getItem('user'));
+function onSignUp()
+{
+    document.querySelector('.modal__content-heading').textContent = "REGISTER";
+    document.getElementById('modal__email').style.display = "block";
+    document.getElementById('register').style.display = "";
+    document.getElementById('login').style.display = "none";
+    document.getElementById('modal-signup').style.display = "none";
+    document.getElementById('modal-signin').style.display = "";
+}
+
+function onSignIn()
+{
+    document.querySelector('.modal__content-heading').textContent = "LOGIN";
+    document.getElementById('modal__email').style.display = "none";
+    document.getElementById('register').style.display = "none";
+    document.getElementById('login').style.display = "";
+    document.getElementById('modal-signup').style.display = "";
+    document.getElementById('modal-signin').style.display = "none";
+}
+
+arrCustomer = JSON.parse(localStorage.getItem('customer'));
+
 //Slider
-var counter = 1;
-    setInterval(function(){
-      document.getElementById('radio' + counter).checked = true;
-      counter++;
-      if(counter > 4)
-      {
-        counter = 1;
-      }
-    }, 3000);
+function sliderRunning()
+{
+
+    var counter = 1;
+        setInterval(function(){
+          document.getElementById('radio' + counter).checked = true;
+          counter++;
+          if(counter > 4)
+          {
+            counter = 1;
+          }
+        }, 3000);
+}
 // Render product
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
@@ -264,13 +208,6 @@ barBtnClose.addEventListener('click', function(){
     barsContent.style.display = "none";
 });
 
-var barsLogin = document.getElementById('barsLogin');
-
-barsLogin.addEventListener('click', function(){
-    barsOverlay.style.display = "none";
-    barsContent.style.display = "none";
-    modalLogin.style.display = "block";
-});
 
 //xuly modal product
 var btnProductClose = document.querySelector('.modal__product-close');
@@ -359,37 +296,83 @@ function renderProduct(arrProduct)
   
 }
 
-
-var product = getQueryVariable('product');
-
-var arrSearch = [];
-var d = 0;
-if(getQueryVariable('product') !=null)
+function renderDisplayProduct()
 {
 
-    for (var i=0;i<arrProduct.length;i++)
+    var product = getQueryVariable('product');
+    
+    var arrSearch = [];
+    var d = 0;
+    if(getQueryVariable('product') !=null)
     {
-        if(arrProduct[i].type == product){
-            arrSearch[d] = arrProduct[i];
-            d++;
+    
+        for (var i=0;i<arrProduct.length;i++)
+        {
+            if(arrProduct[i].type == product){
+                arrSearch[d] = arrProduct[i];
+                d++;
+            }
         }
+        renderProduct(arrSearch);
+    } else{
+        renderProduct(arrProduct);
     }
-    renderProduct(arrSearch);
-} else{
-    renderProduct(arrProduct);
 }
 
+function renderPagination()
+{
+    var product = getQueryVariable('product');
+    var page = getQueryVariable('page') || 1;
+    var prePage = 1;
+    if(page > 1) prePage = parseInt(page) - 1;
+    else {
+          prePage = 1;
+    }
+    var nextPage = parseInt(page) + 1;
 
- 
+    if(product != null)
+    {
+       
+        document.getElementById('prePage').href = 'index.html?product='+product+'&page='+prePage;
+        document.getElementById('nextPage').href = 'index.html?product='+product+'&page='+nextPage;
+        document.getElementById('page1').href = 'index.html?product='+product+'&page=1';
+        document.getElementById('page2').href = 'index.html?product='+product+'&page=2';
+        document.getElementById('page3').href = 'index.html?product='+product+'&page=3';
+    }
+    else {
+        document.getElementById('prePage').href = 'index.html?page='+prePage;
+        document.getElementById('nextPage').href = 'index.html?page='+nextPage;
+        document.getElementById('page1').href = 'index.html?page=1';
+        document.getElementById('page2').href = 'index.html?page=2';
+        document.getElementById('page3').href = 'index.html?page=3';
+    }
+}
 
+function renderContainerHeading()
+{
+    var product = getQueryVariable('product');
+    if(product != null)
+    {
+        document.getElementById('containerHeading').textContent = product;
+    }
+    else {
+        document.getElementById('containerHeading').textContent = "LATEST PRODUCTS";
+    }
+}
 
+window.onload = function()
+{
+
+    renderDisplayProduct();
+    renderPagination();
+    renderContainerHeading();
+
+}
+
+checkSession();
 ///search
 function searchInfo()
 {
-    var txtSearch = document.getElementById('txtsearch');
-    if(txtSearch.value == "iphone")
-    {
-        renderProduct(arrSearch);
-    }
+    
 }
 
