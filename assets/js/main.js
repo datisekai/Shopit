@@ -434,7 +434,95 @@ function hideLoading()
 {
     setTimeout(function(){
         preLoader.style.display = "none";
-    },1500);
+    },500);
 }
 
 preLoading();
+
+function onSelect()
+{
+    var select = document.getElementById('selectPrices');
+    console.log(select.value)
+    switch(select.value)
+    {
+        case '1':
+            filter1();
+            break;
+        case '2':
+            filter2();
+            break;
+        case '3':
+            filter3();
+            break;
+    }
+}
+
+function onSort()
+{
+    var sort = document.getElementById('sortPrices');
+    switch(sort.value)
+    {
+        case '1':
+            sortAscending();
+            break;
+        case '2':
+            sortDescending();
+            break;
+    }
+}
+
+
+function sortAscending()
+{
+    var ascending = arrProduct.sort(function(a,b){
+        return a.prices - b.prices;
+    });
+    renderProduct(ascending);
+}
+
+function sortDescending()
+{
+    var descending = arrProduct.sort(function(a,b){
+        return a.prices - b.prices;
+    });
+    renderProduct(descending);
+}
+
+function filter1()
+{
+    var arrFilter = [];
+    for (var i = 0;i<arrProduct.length;i++)
+    {
+        if(parseInt(arrProduct[i].prices) > 2000)
+        {
+            arrFilter.push(arrProduct[i]);
+        }
+    }
+    renderProduct(arrFilter);
+}
+
+function filter2()
+{
+    var arrFilter = [];
+    for (var i = 0;i<arrProduct.length;i++)
+    {
+        if(parseInt(arrProduct[i].prices) >= 1000 && parseInt(arrProduct[i].prices) <= 2000)
+        {
+            arrFilter.push(arrProduct[i]);
+        }
+    }
+    renderProduct(arrFilter);
+}
+
+function filter3()
+{
+    var arrFilter = [];
+    for (var i = 0;i<arrProduct.length;i++)
+    {
+        if(parseInt(arrProduct[i].prices) < 1000)
+        {
+            arrFilter.push(arrProduct[i]);
+        }
+    }
+    renderProduct(arrFilter);
+}

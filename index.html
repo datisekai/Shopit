@@ -93,7 +93,7 @@
             id: "9",
             img: 'macbook1.jpg',
             name: 'MacBook Pro 13" 2020 Touch Bar M1 256GB',
-            prices: '1200',
+            prices: '2400',
             type: "macbook"
         },
     
@@ -101,7 +101,7 @@
             id: "10",
             img: 'macbook2.jpg',
             name: 'MacBook Pro 16" 2019 Touch Bar 2.6GHz Core i7 512GB',
-            prices: '1400',
+            prices: '2600',
             type: "macbook"
         },
     
@@ -109,7 +109,7 @@
             id: "11",
             img: 'macbook3.jpg',
             name: 'MacBook Air 13" 2020 M1 16GB/256GB',
-            prices: '1100',
+            prices: '2900',
             type: "macbook"
         },
     
@@ -117,7 +117,7 @@
             id: "12",
             img: 'macbook4.jpg',
             name: 'MacBook Pro 13" 2020 Touch Bar M1 16GB/256GB',
-            prices: '1299',
+            prices: '1900',
             type: "macbook"
         },
     
@@ -157,7 +157,7 @@
             id: "17",
             img: 'ipad1.jpg',
             name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1200',
+            prices: '1000',
             type: "ipad"
         },
     
@@ -165,7 +165,7 @@
             id: "18",
             img: 'ipad2.jpg',
             name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1200',
+            prices: '1400',
             type: "ipad"
         },
     
@@ -173,7 +173,7 @@
             id: "19",
             img: 'ipad3.jpg',
             name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1200',
+            prices: '1600',
             type: "ipad"
         },
     
@@ -181,7 +181,7 @@
             id: "20",
             img: 'ipad4.jpg',
             name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1200',
+            prices: '1700',
             type: "ipad"
         },
     
@@ -189,7 +189,7 @@
             id: "21",
             img: 'ipad5.jpg',
             name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1200',
+            prices: '2100',
             type: "ipad"
         },
     
@@ -197,7 +197,7 @@
             id: "22",
             img: 'ipad6.jpg',
             name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1200',
+            prices: '2000',
             type: "ipad"
         },
     
@@ -205,7 +205,7 @@
             id: "23",
             img: 'ipad7.jpg',
             name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 128GB (2021)',
-            prices: '1200',
+            prices: '2400',
             type: "ipad"
         }
     
@@ -481,10 +481,22 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
                     </div>
                     <div class="col l-10 m-12 c-12">
                             <h1 class="container__heading" id="containerHeading">LATEST PRODUCTS</h1>
+                            <div class="select__search">
+                                <select name="" id="selectPrices" onchange="onSelect();">
+                                    <option >Lọc theo mức giá</option>
+                                    <option value="1">Trên 2000$</option>
+                                    <option value="2">Từ 1000$ - 2000$</option>
+                                    <option value="3">Dưới 1000$</option>
+                                </select>
+
+                                <select name="" id="sortPrices" onchange="onSort();">
+                                    <option>Sắp xếp giá</option>
+                                    <option value="1">Từ thấp đến cao</option>
+                                    <option value="2">Từ cao đến thấp</option>
+                                </select>
+                            </div>
                             <div class="home__product">
-                                <div class="row" id="display_product">
-                                    
-                                </div>
+                                <div class="row" id="display_product"></div>
                             </div>
 
                         <div class="pagination">
