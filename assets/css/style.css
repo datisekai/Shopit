@@ -548,6 +548,8 @@
     font-size: 18px;
     text-transform: uppercase;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    white-space: nowrap;
+    overflow-x: hidden;
 }
 
 .home__product-item-img{
@@ -654,6 +656,7 @@
     background-color: #FCB35F;
 }
 
+
 .pagination__list-link{
     text-decoration: none;
     border: none;
@@ -718,6 +721,7 @@
     border-radius: 10px;
     animation: transitionY ease-in .4s;
     padding: 16px;
+    width: 50%;
 }
 
 
@@ -748,7 +752,7 @@
 }
 
 .modal__product-img img{
-    width: 100%;
+   width: 80%;
 }
 
 .modal__product-info-prices{
@@ -856,6 +860,11 @@
 
 .menu__list{
     list-style: none;
+  
+}
+
+.menu__list a{
+    text-decoration: none;
 }
 
 .menu__list-item{
@@ -864,6 +873,9 @@
     text-align: center;
     border-radius: 5px;
     padding: 6px 8px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
 }
 
 .menu__list-item:hover{
@@ -981,6 +993,12 @@
     margin-top: 12px;
     list-style: none;
     display: none;
+}
+
+.bars-item-list a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .bars-item-list-item{

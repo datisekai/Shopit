@@ -11,72 +11,27 @@
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
 </head>
+
 <script>
-    var arrProduct = [
-                                        {
-                                            id: "1",
-                                            img:'iphone13.png',
-                                            name: 'IPHONE 13 Pro new',
-                                            prices: '1200'
-                                        },
+    function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+}
+var arrProduct = JSON.parse(localStorage.getItem('product'));
 
-                                        {
-                                            id: "2",
-                                            img: '13promax.jpg',
-                                            name: 'IPHONE 13 Pro max new',
-                                            prices: '2000'
-                                        },
-
-                                        { 
-                                            id: "3",
-                                            img: '13.jpg',
-                                            name: 'IPHONE 13 64GB new',
-                                            prices: '1000'
-                                        },
-
-                                        {
-                                            id: "4",
-                                            img: '13mini.jpg',
-                                            name: 'IPHONE 13 mini new',
-                                            prices: '800'
-                                        },
-
-                                        {
-                                            id: "5",
-                                            img: '13mini.jpg',
-                                            name: 'IPHONE 13 mini new',
-                                            prices: '800'
-                                        },
-                                        
-                                        {
-                                            id: "6",
-                                            img: '13mini.jpg',
-                                            name: 'IPHONE 13 mini new',
-                                            prices: '800'
-                                        },
-
-                                        {
-                                            id: "7",
-                                            img: '13mini.jpg',
-                                            name: 'IPHONE 13 mini new',
-                                            prices: '800'
-                                        },
-
-                                        {
-                                            id: "8",
-                                            img: '13mini.jpg',
-                                            name: 'IPHONE 13 mini new',
-                                            prices: '800'
-                                        }
-
-                                        ];
 </script>
 <body>
     <div class="main">
         
         <div class="header">
             <div class="header__logo">
-                <a href="">
+                <a href="index.html">
 
                     <img src="./assets/img/logo1.png" alt="" class="header__logo-img">
                 </a>
@@ -85,7 +40,7 @@
             <div class="header__search hide-on-tablet">
 
                 <div class="header__search-input">
-                    <input type="text" placeholder="Search something........." class="search-input">
+                    <input type="text" placeholder="Search something........." class="search-input" id="txtsearch" onchange="">
                 </div>
                 
                 <div class="header__search-btn">
@@ -176,11 +131,11 @@
 
         </div>
        
-        <div class="modal__product" style="display:none;">
+        <div class="modal__product" id="modalProduct" style="display:none;">
             <div class="modal__product-overlay"></div>
 
             <div class="modal__product-content">
-                <div class="modal__product-img" id="imgModalProduct">
+                <div class="modal__product-img hide-on-mobile hide-on-tablet" id="imgModalProduct">
                     <!-- <img src="" alt="" id="imgModalProduct"> -->
                 </div>
                 
@@ -240,9 +195,10 @@
                         <li class="bars__list-item" id="barsCategory">Category</li>
                         <span style="display: none;" id="barCategoryClose"><i class="fas fa-window-close"></i></span>
                         <ul class="bars-item-list" id="barsCategoryItem">
-                            <li class="bars-item-list-item">Iphone</li>
-                            <li class="bars-item-list-item">Macbook</li>
-                            <li class="bars-item-list-item">Airpod</li>
+                            <a href="?product=iphone"><li class="bars-item-list-item">Iphone</li></a>
+                            <a href="?product=ipad"><li class="bars-item-list-item">Ipad</li></a>
+                            <a href="?product=macbook"><li class="bars-item-list-item">Macbook</li></a>
+                            
                         </ul>
                     </ul>
                 </div>
@@ -280,66 +236,49 @@
                     <label for="radio4" class="manual-btn"></label>
                 </div>
             </div>
-        
+    
 
         <div class="container">
-            
+        
             <div class="grid wide">
                 <div class="row">
                     <div class="col l-2 m-0 c-0">
                         <div class="menu__product">
                             <div class="menu__heading">Category</div>
                             <ul class="menu__list">
-                                <li class="menu__list-item"><a href="index.html?product=1">IPHONE</a></li>
-                                <li class="menu__list-item"><a href="index.html?product=2">MACBOOK</a></li>
-                                <li class="menu__list-item"><a href="index.html?product=3">AIRPOD</a></li>
+                                <a href="?product=iphone"><li class="menu__list-item" id="iphone">IPHONE</li></a>
+                                <a href="?product=ipad"><li class="menu__list-item" id="ipad">IPAD</li></a>
+                                <a href="?product=macbook"><li class="menu__list-item" id="macbook">MACBOOK</li></a>
                             </ul>
                         </div>
                         <div class="img-pr">
                         </div>
                     </div>
                     <div class="col l-10 m-12 c-12">
-                        <h1 class="container__heading">LATEST PRODUCTS</h1>
-                        <div class="home__product">
-                            <div class="row">
-                                <script>
-                                        
-                                        var i = 0;
-                                          while(i<arrProduct.length)
-                                          {
-  
-                                              var s = '<div class="col l-3 m-6 c-12"> <div class="home__product-item" onclick="showModal('+i+')"><div class="home__product-item-img"> <img src="./assets/img/'+arrProduct[i].img+'" alt=""> </div>'+
-                                              ' <div class="home__product-item-description"><h4>'+arrProduct[i].name+'</h4></div>' + 
-                                              '<div class="home__product-item-appreciate"><div class="appreciate-item"> <i class="appreciate-item-btn fas fa-star"></i> </div>' +
-                                              '<div class="appreciate-item"><i class="appreciate-item-btn fas fa-star"></i></div>' +
-                                              '<div class="appreciate-item"><i class="appreciate-item-btn fas fa-star"></i></div>' +
-                                              '<div class="appreciate-item"><i class="appreciate-item-btn fas fa-star"></i></div>' +
-                                              '<div class="appreciate-item"><i class="appreciate-item-btn fas fa-star"></i></div>' + ' <span>(1 Reviewer)</span>' + '</div>' + 
-                                              '<div class="home__product-item-prices"><h4>$'+arrProduct[i].prices+'</h4> </div>'+
-                                              '<div class="home__product-item-btn"><button>View Info</button></div>' +
-                                              '</div> </div>';
-                                              document.write(s);
-                                              i++;
-                                          }
-                                </script>
+                       
+                            
+                            <h1 class="container__heading">LATEST PRODUCTS</h1>
+                            <div class="home__product">
+                                <div class="row" id="display_product">
+                                </div>
                             </div>
-                        </div>
+                       
+
+
                         <div class="pagination">
                             <div class="pagination__list">
-                                <a href="index.html?page=0" class="pagination__list-link">
-                
-                                    <div class="pagination__list-item">First</div>
-                                </a>
                                 <script>
-                                   
+                                    var prePage = 1;
+                                    if(parseInt(getQueryVariable('page')) > 1) prePage = parseInt(getQueryVariable('page')) - 1;
+                                    else {
+                                        prePage = 1;
+                                    }
+                                   var s = '<a href="index.html?page='+prePage+'" class="pagination__list-link"><div class="pagination__list-item">Prev</div></a>';
+                                   document.write(s);
                                 </script>
-                                <a href="" class="pagination__list-link">
-                
-                                    <div class="pagination__list-item">Prev</div>
-                                </a>
                                 <a href="index.html?page=1" class="pagination__list-link">
                 
-                                    <div class="pagination__list-item pagination__list-item-active">1</div>
+                                    <div class="pagination__list-item">1</div>
                                 </a>
                                 <a href="index.html?page=2" class="pagination__list-link">
                 
@@ -349,25 +288,20 @@
                 
                                     <div class="pagination__list-item">3</div>
                                 </a>
-                                <a href="" class="pagination__list-link">
-                
-                                    <div class="pagination__list-item">Next</div>
-                                </a>
-                                <a href="" class="pagination__list-link">
-                
-                                    <div class="pagination__list-item">Last</div>
-                                </a>
+                                <script>
+                                    var nextPage = 1;
+                                    nextPage = parseInt(getQueryVariable('page')) + 1;
+                                   var s = '<a href="index.html?page='+nextPage+'" class="pagination__list-link"><div class="pagination__list-item">Next</div></a>';
+                                   document.write(s);
+                                </script>                           
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        
     </div>
-
     <script src="./assets/js/main.js"></script>
+    
 </body>
 </html>
