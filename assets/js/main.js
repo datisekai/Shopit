@@ -306,207 +306,7 @@ minusProduct.addEventListener('click', function(){
         quantifyProduct.value = quantify;
     }
 });
-function createProduct()
-{
-    var arrProduct = [
-        {
-            id: "0",
-            img:'macbook1.jpg',
-            name: 'Macbook',
-            prices: '1200',
-            type: "macbook"
-        },
-    
-        {
-            id: "1",
-            img: '13promax.jpg',
-            name: 'IPHONE 13 Pro max new',
-            prices: '2000',
-            type: "iphone"
-        },
-    
-        { 
-            id: "2",
-            img: '13.jpg',
-            name: 'IPHONE 13 64GB new',
-            prices: '1000',
-            type: "iphone"
-        },
-    
-        {
-            id: "3",
-            img: '13mini.jpg',
-            name: 'IPHONE 13 mini new',
-            prices: '800',
-            type: "iphone"
-        },
-    
-        {
-            id: "4",
-            img: '13mini.jpg',
-            name: 'IPHONE 13 mini new',
-            prices: '900',
-            type: "iphone"
-        },
-        
-        {
-            id: "5",
-            img: '13mini.jpg',
-            name: 'IPHONE 13 mini new',
-            prices: '1000',
-            type: "iphone"
-        },
-    
-        {
-            id: "6",
-            img: '13mini.jpg',
-            name: 'IPHONE 13 mini new',
-            prices: '1100',
-            type: "iphone"
-        },
-    
-        {
-            id: "7",
-            img: '13mini.jpg',
-            name: 'IPHONE 13 mini new',
-            prices: '1200',
-            type: "iphone"
-        },
-    
-        {
-            id: "8",
-            img: '13mini.jpg',
-            name: 'IPHONE 13 mini new',
-            prices: '1300',
-            type: "iphone"
-        },
-    
-        
-        {
-            id: "9",
-            img: 'macbook1.jpg',
-            name: 'MacBook Pro 13" 2020 Touch Bar M1 256GB',
-            prices: '1200',
-            type: "macbook"
-        },
-    
-        {
-            id: "10",
-            img: 'macbook2.jpg',
-            name: 'MacBook Pro 16" 2019 Touch Bar 2.6GHz Core i7 512GB',
-            prices: '1400',
-            type: "macbook"
-        },
-    
-        {
-            id: "11",
-            img: 'macbook3.jpg',
-            name: 'MacBook Air 13" 2020 M1 16GB/256GB',
-            prices: '1100',
-            type: "macbook"
-        },
-    
-        {
-            id: "12",
-            img: 'macbook4.jpg',
-            name: 'MacBook Pro 13" 2020 Touch Bar M1 16GB/256GB',
-            prices: '1299',
-            type: "macbook"
-        },
-    
-        {
-            id: "13",
-            img: 'macbook5.jpg',
-            name: 'MacBook Pro 14" 2021 M1 Pro',
-            prices: '1399',
-            type: "macbook"
-        },
-    
-        {
-            id: "14",
-            img: 'macbook6.jpg',
-            name: 'MacBook Pro 13" 2020 Touch Bar 2.0GHz Core i5 512GB',
-            prices: '1499',
-            type: "macbook"
-        },
-    
-        {
-            id: "15",
-            img: 'macbook7.jpg',
-            name: 'MacBook Pro 13" 2020 Touch Bar M1 256GB',
-            prices: '999',
-            type: "macbook"
-        },
-    
-        {
-            id: "16",
-            img: 'macbook7.jpg',
-            name: 'MacBook Pro 13" 2020 Touch Bar M1 256GB',
-            prices: '1099',
-            type: "macbook"
-        },
-    
-        {
-            id: "17",
-            img: 'ipad1.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1200',
-            type: "ipad"
-        },
-    
-        {
-            id: "18",
-            img: 'ipad2.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1200',
-            type: "ipad"
-        },
-    
-        {
-            id: "19",
-            img: 'ipad3.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1200',
-            type: "ipad"
-        },
-    
-        {
-            id: "20",
-            img: 'ipad4.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1200',
-            type: "ipad"
-        },
-    
-        {
-            id: "21",
-            img: 'ipad5.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1200',
-            type: "ipad"
-        },
-    
-        {
-            id: "22",
-            img: 'ipad6.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1200',
-            type: "ipad"
-        },
-    
-        {
-            id: "23",
-            img: 'ipad7.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 128GB (2021)',
-            prices: '1200',
-            type: "ipad"
-        }
-    
-        ];
-  
-        localStorage.setItem('product',JSON.stringify(arrProduct));
-    
-}
+
 
 var arrProduct = JSON.parse(localStorage.getItem('product'));
 function showModal(id)
@@ -579,8 +379,17 @@ if(getQueryVariable('product') !=null)
     renderProduct(arrProduct);
 }
 
-window.onload = function()
+
+ 
+
+
+///search
+function searchInfo()
 {
-    createProduct();
+    var txtSearch = document.getElementById('txtsearch');
+    if(txtSearch.value == "iphone")
+    {
+        renderProduct(arrSearch);
+    }
 }
 
