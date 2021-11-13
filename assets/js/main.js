@@ -101,7 +101,6 @@ function onRegister()
             level: 1
         };
         arrCustomer.push(customer);
-        console.log(arrCustomer);
         document.getElementById('errorLogin').textContent = "Đăng kí thành công, vui lòng đăng nhập!";
         document.getElementById('errorLogin').style.color = "green";
         onSignIn();
@@ -255,15 +254,22 @@ minusProduct.addEventListener('click', function(){
 var arrProduct = JSON.parse(localStorage.getItem('product'));
 function showModal(id)
 {
-    
+    var arrModal;
+    for (var i=0;i<arrProduct.length;i++)
+    {
+        if(arrProduct[i].id == id)
+        {
+            arrModal = arrProduct[i]; break;
+        }
+    }
     document.getElementById('modalProduct').style.display = "flex"; 
-    var imgProduct = '<img src="./assets/img/'+arrProduct[id].img+'" alt="">';
+    var imgProduct = '<img src="./assets/img/'+arrModal.img+'" alt="">';
     document.getElementById("imgModalProduct").innerHTML = imgProduct;
 
-    var nameProduct = '<h3 id="textModalProduct">'+arrProduct[id].name+'</h3>';
+    var nameProduct = '<h3 id="textModalProduct">'+arrModal.name+'</h3>';
     document.getElementById("nameModalProduct").innerHTML = nameProduct;
 
-    var pricesProduct = '<p>Giá sản phẩm: <span>$'+arrProduct[id].prices+'</span></p>';
+    var pricesProduct = '<p>Giá sản phẩm: <span>$'+arrModal.prices+'</span></p>';
     document.getElementById("pricesModalProduct").innerHTML = pricesProduct;
 }
 
@@ -403,18 +409,17 @@ checkSession();
 function searchInfo(id)
 {
     txtSearch = document.getElementById(id).value;
-    console.log(txtSearch);
     if(txtSearch != '')
     {
-        if(txtSearch.indexOf('iph') != -1)
+        if(txtSearch.toUpperCase().indexOf('IPH') != -1)
         {
             window.location = 'index.html?product=iphone';
         }
-        else if(txtSearch.indexOf('ipa') != -1)
+        else if(txtSearch.toUpperCase().indexOf('IPA') != -1)
         {
             window.location = 'index.html?product=ipad';
         }
-        else if(txtSearch.indexOf('mac') != -1)
+        else if(txtSearch.toUpperCase().indexOf('MAC') != -1)
         {
             window.location = 'index.html?product=macbook';
         }
@@ -442,7 +447,6 @@ preLoading();
 function onSelect()
 {
     var select = document.getElementById('selectPrices');
-    console.log(select.value)
     switch(select.value)
     {
         case '1':
