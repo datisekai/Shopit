@@ -483,7 +483,7 @@ function sortAscending()
 function sortDescending()
 {
     var descending = arrProduct.sort(function(a,b){
-        return a.prices - b.prices;
+        return b.prices - a.prices;
     });
     renderProduct(descending);
 }
