@@ -5,11 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./Winwheel.js"></script>
 </head>
 <body>
+    <canvas id='canvas' width='880' height='300'>
+        Canvas not supported, use another browser.
+    </canvas>
     <script>
-        var s = "macbook";
-        console.log(s.indexOf("ma"));
+        let theWheel = new Winwheel({
+            'numSegments'       : 8,                // Specify number of segments.
+            'outerRadius'       : 200,              // Set outer radius so wheel fits inside the background.
+            'drawText'          : true,             // Code drawn text can be used with segment images.
+            'textFontSize'      : 16,               // Set text options as desired.
+            'textOrientation'   : 'curved',
+            'textAlignment'     : 'inner',
+            'textMargin'        : 90,
+            'textFontFamily'    : 'monospace',
+            'textStrokeStyle'   : 'black',
+            'textLineWidth'     : 3,
+            'textFillStyle'     : 'white',
+            'drawMode'          : 'segmentImage',    // Must be segmentImage to draw wheel using one image per segemnt.
+            'segments'          :                    // Define segments including image and text.
+            [
+               {'image' : './assets/img/macbook1.jpg',  'text' : 'Jane'},
+               {'image' : './assets/img/macbook2.jpg',   'text' : 'Tom'},
+               {'image' : './assets/img/macbook3.jpg',  'text' : 'Mary'},
+               {'image' : './assets/img/macbook4.jpg',  'text' : 'Alex'},
+               {'image' : './assets/img/macbook5.jpg', 'text' : 'Sarah'},
+               {'image' : './assets/img/macbook6.jpg', 'text' : 'Bruce'},
+               {'image' : './assets/img/macbook7.jpg',  'text' : 'Rose'},
+               {'image' : './assets/img/macbook1.jpg', 'text' : 'Steve'}
+            ],
+            'animation' :           // Specify the animation to use.
+            {
+                'type'     : 'spinToStop',
+                'duration' : 5,
+                'spins'    : 8,
+                'callbackFinished' : alertPrize
+            }
+        });
+
+        // Called when the animation as finished.
+        function alertPrize(indicatedSegment)
+        {
+            // Do basic alert of the segment text.
+            alert(indicatedSegment.text + ' says Hi');
+        }
     </script>
 </body>
 </html>
+<input type="button" value="SPIN" id="spin_button" onclick="startSpin();">

@@ -1070,3 +1070,42 @@ option{
     z-index: 10;
     border: none;
 }
+
+
+/* lucky whell */
+#spin_button{
+    padding: 12px 16px;
+    background-color: #FCB35F;
+    border: none;
+    color: white;
+    font-family: sans-serif;
+}
+
+#spin_button:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+#playagain{
+    text-decoration: none;
+    color: white;
+    padding: 11px 16px;
+    background-color: #FCB35F;
+    margin-left: 4px;
+}
+
+#playagain:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+
+
+.spinlucky{
+    margin-top: 20px;
+    padding: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

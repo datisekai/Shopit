@@ -305,8 +305,6 @@ function renderProduct(arrProduct)
                 k++; 
     }
     document.getElementById('display_product').innerHTML = s;
-
-  
 }
 
 function renderDisplayProduct()
@@ -330,6 +328,82 @@ function renderDisplayProduct()
     } else{
         renderProduct(arrProduct);
     }
+}
+
+
+function renderVQMM()
+{
+    var event = getQueryVariable('event');
+    if(event == 'vqmm')
+    {
+        document.querySelector('.home__product').style.display = "none";
+        document.querySelector('.select__search').style.display = "none";
+        document.getElementById('containerHeading').style.display = "none";
+        document.getElementById('luckyheading').textContent = "Vòng quay";
+        var s = '<div align="center" class=""><table >  <tr> <td><div class="power_controls">' +
+        ' </div></td><td width="90%" height="auto" class="the_wheel" align="center" valign="center">' +
+        '<canvas id="canvas" width="300" height="300"><p style="{color: white}" align="center"></p>' +
+        '</canvas></td></tr></table>'+'<div class="spinlucky"><input type="button" value="SPIN" id="spin_button" onclick="startSpin();"></br>' +
+        '<a href="" onclick="resetWheel(); return false;" id="playagain">Play Again</a><br /></div>' + '</div>';
+        document.getElementById('content').innerHTML = s;
+    }
+}
+renderVQMM();
+
+let theWheel = new Winwheel({
+    'numSegments'  : 8,    
+    'outerRadius'  : 144,  
+    'textFontSize' : 18,    
+    'segments'     :   
+    [
+       {'fillStyle' : '#eae56f', 'text' : 'Mã Sale 5%'},
+       {'fillStyle' : '#89f26e', 'text' : 'Mã Sale 10%'},
+       {'fillStyle' : '#7de6ef', 'text' : 'Mã Sale 15%'},
+       {'fillStyle' : '#e7706f', 'text' : 'Mã Sale 20%'},
+       {'fillStyle' : '#eae56f', 'text' : 'Mã Sale 30%'},
+       {'fillStyle' : '#89f26e', 'text' : 'Mã Sale 40%'},
+       {'fillStyle' : '#7de6ef', 'text' : 'Mã Sale 50%'},
+       {'fillStyle' : '#e7706f', 'text' : 'Mã Sale 70%'}
+    ],
+    'animation' :          
+    {
+        'type'     : 'spinToStop',
+        'duration' : 5,    
+        'spins'    : 8,     
+        'callbackFinished' : alertPrize
+    }
+});
+let wheelPower    = 0;
+let wheelSpinning = false;
+
+function startSpin()
+{
+    if (wheelSpinning == false) {
+        if (wheelPower == 1) {
+            theWheel.animation.spins = 3;
+        } else if (wheelPower == 2) {
+                theWheel.animation.spins = 8;
+                } else if (wheelPower == 3) {
+                    theWheel.animation.spins = 15;
+                        }
+        document.getElementById('spin_button').className = "";
+        theWheel.startAnimation();
+        wheelSpinning = true;
+    }
+}
+function resetWheel()
+{
+    theWheel.stopAnimation(false);  
+    theWheel.rotationAngle = 0;     
+    theWheel.draw();                
+    document.getElementById('pw1').className = "";  
+            document.getElementById('pw2').className = "";
+            document.getElementById('pw3').className = "";
+            wheelSpinning = false;  
+        }
+function alertPrize(indicatedSegment)
+{
+   alert("Bạn đã trúng " + indicatedSegment.text);
 }
 
 function renderPagination()
