@@ -1061,7 +1061,8 @@
     border-radius: 5px;
 }
 
-option{
+#selectPrices option,
+#sortPrices option{
     position: absolute;
     background-color: #FCB35F;
     top: 100%;
@@ -1073,12 +1074,18 @@ option{
 
 
 /* lucky whell */
+.the_wheel{
+   
+}
+
 #spin_button{
     padding: 12px 16px;
     background-color: #FCB35F;
     border: none;
     color: white;
     font-family: sans-serif;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 #spin_button:hover{
@@ -1089,9 +1096,13 @@ option{
 #playagain{
     text-decoration: none;
     color: white;
-    padding: 11px 16px;
+    padding: 12px 16px;
     background-color: #FCB35F;
     margin-left: 4px;
+    border-radius: 5px;
+    border: none;
+    font-family: sans-serif;
+    font-size: 16px;
 }
 
 #playagain:hover{
@@ -1108,4 +1119,9 @@ option{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.luckyheading{
+    font-family: sans-serif;
+    padding: 8px;
 }

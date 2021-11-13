@@ -1,3 +1,251 @@
+var arrProduct = [];
+function createProduct()
+{
+    if(localStorage.getItem('product') == null)
+    {
+
+        arrProduct = [
+            {
+                id: "0",
+                img:'macbook1.jpg',
+                name: 'Macbook',
+                prices: '1200',
+                type: "macbook"
+            },
+        
+            {
+                id: "1",
+                img: '13promax.jpg',
+                name: 'IPHONE 13 Pro max new',
+                prices: '2000',
+                type: "iphone"
+            },
+        
+            { 
+                id: "2",
+                img: '13.jpg',
+                name: 'IPHONE 13 64GB new',
+                prices: '1000',
+                type: "iphone"
+            },
+        
+            {
+                id: "3",
+                img: '13mini.jpg',
+                name: 'IPHONE 13 mini new',
+                prices: '800',
+                type: "iphone"
+            },
+        
+            {
+                id: "4",
+                img: '13mini.jpg',
+                name: 'IPHONE 13 mini new',
+                prices: '900',
+                type: "iphone"
+            },
+            
+            {
+                id: "5",
+                img: '13mini.jpg',
+                name: 'IPHONE 13 mini new',
+                prices: '1000',
+                type: "iphone"
+            },
+        
+            {
+                id: "6",
+                img: '13mini.jpg',
+                name: 'IPHONE 13 mini new',
+                prices: '1100',
+                type: "iphone"
+            },
+        
+            {
+                id: "7",
+                img: '13mini.jpg',
+                name: 'IPHONE 13 mini new',
+                prices: '1200',
+                type: "iphone"
+            },
+        
+            {
+                id: "8",
+                img: '13mini.jpg',
+                name: 'IPHONE 13 mini new',
+                prices: '1300',
+                type: "iphone"
+            },
+        
+            
+            {
+                id: "9",
+                img: 'macbook1.jpg',
+                name: 'MacBook Pro 13" 2020 Touch Bar M1 256GB',
+                prices: '2400',
+                type: "macbook"
+            },
+        
+            {
+                id: "10",
+                img: 'macbook2.jpg',
+                name: 'MacBook Pro 16" 2019 Touch Bar 2.6GHz Core i7 512GB',
+                prices: '2600',
+                type: "macbook"
+            },
+        
+            {
+                id: "11",
+                img: 'macbook3.jpg',
+                name: 'MacBook Air 13" 2020 M1 16GB/256GB',
+                prices: '2900',
+                type: "macbook"
+            },
+        
+            {
+                id: "12",
+                img: 'macbook4.jpg',
+                name: 'MacBook Pro 13" 2020 Touch Bar M1 16GB/256GB',
+                prices: '1900',
+                type: "macbook"
+            },
+        
+            {
+                id: "13",
+                img: 'macbook5.jpg',
+                name: 'MacBook Pro 14" 2021 M1 Pro',
+                prices: '1399',
+                type: "macbook"
+            },
+        
+            {
+                id: "14",
+                img: 'macbook6.jpg',
+                name: 'MacBook Pro 13" 2020 Touch Bar 2.0GHz Core i5 512GB',
+                prices: '1499',
+                type: "macbook"
+            },
+        
+            {
+                id: "15",
+                img: 'macbook7.jpg',
+                name: 'MacBook Pro 13" 2020 Touch Bar M1 256GB',
+                prices: '999',
+                type: "macbook"
+            },
+        
+            {
+                id: "16",
+                img: 'macbook7.jpg',
+                name: 'MacBook Pro 13" 2020 Touch Bar M1 256GB',
+                prices: '1099',
+                type: "macbook"
+            },
+        
+            {
+                id: "17",
+                img: 'ipad1.jpg',
+                name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
+                prices: '1000',
+                type: "ipad"
+            },
+        
+            {
+                id: "18",
+                img: 'ipad2.jpg',
+                name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
+                prices: '1400',
+                type: "ipad"
+            },
+        
+            {
+                id: "19",
+                img: 'ipad3.jpg',
+                name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
+                prices: '1600',
+                type: "ipad"
+            },
+        
+            {
+                id: "20",
+                img: 'ipad4.jpg',
+                name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
+                prices: '1700',
+                type: "ipad"
+            },
+        
+            {
+                id: "21",
+                img: 'ipad5.jpg',
+                name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
+                prices: '2100',
+                type: "ipad"
+            },
+        
+            {
+                id: "22",
+                img: 'ipad6.jpg',
+                name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
+                prices: '2000',
+                type: "ipad"
+            },
+        
+            {
+                id: "23",
+                img: 'ipad7.jpg',
+                name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 128GB (2021)',
+                prices: '2400',
+                type: "ipad"
+            }
+        
+            ];
+            localStorage.setItem('product',JSON.stringify(arrProduct));
+    } else{
+        arrProduct = JSON.parse(localStorage.getItem('product'));
+    }
+  
+    
+}
+
+var arrCustomer = [];
+function createCustomer()
+{
+
+    if(localStorage.getItem('customer') == null)
+    {
+
+        arrCustomer = [
+            {
+                user: 'admin',
+                password: 'admin',
+                email: 'lydatltd@gmail.com',
+                level: 0
+            },
+            {
+                user: 'datisekai',
+                password: 'bedatdz',
+                email: 'lydatltd@gmail.com',
+                level: 1
+            }
+        ];
+        localStorage.setItem('customer',JSON.stringify(arrCustomer));
+    } else{
+        arrCustomer = JSON.parse(localStorage.getItem('customer'));
+    }
+}
+    function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+}
+
+createProduct();
+createCustomer();
 function displayLogin()
 {
     document.querySelector('.modal__login').style.display = "block";
@@ -109,6 +357,7 @@ function onRegister()
         document.getElementById('errorLogin').style.color = "green";
         onSignIn();
         localStorage.setItem('customer',JSON.stringify(arrCustomer));
+        console.log(arrCustomer);
     }
 
 }
@@ -155,8 +404,6 @@ function onSignIn()
     document.getElementById('modal-signup').style.display = "";
     document.getElementById('modal-signin').style.display = "none";
 }
-
-arrCustomer = JSON.parse(localStorage.getItem('customer'));
 
 //Slider
 sliderRunning();
@@ -263,7 +510,7 @@ minusProduct.addEventListener('click', function(){
 });
 
 
-var arrProduct = JSON.parse(localStorage.getItem('product'));
+
 function showModal(id)
 {
     var arrModal;
@@ -351,21 +598,24 @@ function renderVQMM()
         document.querySelector('.home__product').style.display = "none";
         document.querySelector('.select__search').style.display = "none";
         document.getElementById('containerHeading').style.display = "none";
-        document.getElementById('luckyheading').textContent = "Vòng quay";
-        var s = '<div align="center" class=""><table >  <tr> <td><div class="power_controls">' +
+       
+        var s = '<h1 class="luckyheading">VÒNG QUAY</h1><div align="center" class=""><table >  <tr> <td><div class="power_controls">' +
         ' </div></td><td width="90%" height="auto" class="the_wheel" align="center" valign="center">' +
         '<canvas id="canvas" width="300" height="300"><p style="{color: white}" align="center"></p>' +
         '</canvas></td></tr></table>'+'<div class="spinlucky"><input type="button" value="Quay" id="spin_button" onclick="startSpin();"></br>' +
-        '<a href="" onclick="resetWheel(); return false;" id="playagain">Chơi lại</a><br /></div>' + '</div>';
+        '<p onclick="resetWheel(); return false;" id="playagain">Chơi lại</p><br /></div>' + '</div>';
         document.getElementById('content').innerHTML = s;
     }
 }
 renderVQMM();
 
+//VQMM
 let theWheel = new Winwheel({
     'numSegments'  : 8,    
     'outerRadius'  : 144,  
-    'textFontSize' : 18,    
+    'textFontSize' : 18,  
+    'textFillStyle':'black',  
+    'textFontFamily':'san-serif',
     'segments'     :   
     [
        {'fillStyle' : '#eae56f', 'text' : 'Mã Sale 5%'},
@@ -385,34 +635,20 @@ let theWheel = new Winwheel({
         'callbackFinished' : alertPrize
     }
 });
-let wheelPower    = 0;
-let wheelSpinning = false;
 
 function startSpin()
 {
-    if (wheelSpinning == false) {
-        if (wheelPower == 1) {
-            theWheel.animation.spins = 3;
-        } else if (wheelPower == 2) {
-                theWheel.animation.spins = 8;
-                } else if (wheelPower == 3) {
-                    theWheel.animation.spins = 15;
-                        }
-        document.getElementById('spin_button').className = "";
-        theWheel.startAnimation();
-        wheelSpinning = true;
-    }
+    theWheel.startAnimation();
 }
+
 function resetWheel()
 {
     theWheel.stopAnimation(false);  
     theWheel.rotationAngle = 0;     
     theWheel.draw();                
-    document.getElementById('pw1').className = "";  
-            document.getElementById('pw2').className = "";
-            document.getElementById('pw3').className = "";
-            wheelSpinning = false;  
-        }
+    wheelSpinning = false;  
+}
+
 function alertPrize(indicatedSegment)
 {
    alert("Bạn đã trúng " + indicatedSegment.text);

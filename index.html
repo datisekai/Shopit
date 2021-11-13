@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <title>ShopIT</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
@@ -13,247 +14,6 @@
     <script type="text/javascript" src="./assets/js/Winwheel.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 </head>
-
-<script>
-    function createProduct()
-{
-    var arrProduct = [
-        {
-            id: "0",
-            img:'macbook1.jpg',
-            name: 'Macbook',
-            prices: '1200',
-            type: "macbook"
-        },
-    
-        {
-            id: "1",
-            img: '13promax.jpg',
-            name: 'IPHONE 13 Pro max new',
-            prices: '2000',
-            type: "iphone"
-        },
-    
-        { 
-            id: "2",
-            img: '13.jpg',
-            name: 'IPHONE 13 64GB new',
-            prices: '1000',
-            type: "iphone"
-        },
-    
-        {
-            id: "3",
-            img: '13mini.jpg',
-            name: 'IPHONE 13 mini new',
-            prices: '800',
-            type: "iphone"
-        },
-    
-        {
-            id: "4",
-            img: '13mini.jpg',
-            name: 'IPHONE 13 mini new',
-            prices: '900',
-            type: "iphone"
-        },
-        
-        {
-            id: "5",
-            img: '13mini.jpg',
-            name: 'IPHONE 13 mini new',
-            prices: '1000',
-            type: "iphone"
-        },
-    
-        {
-            id: "6",
-            img: '13mini.jpg',
-            name: 'IPHONE 13 mini new',
-            prices: '1100',
-            type: "iphone"
-        },
-    
-        {
-            id: "7",
-            img: '13mini.jpg',
-            name: 'IPHONE 13 mini new',
-            prices: '1200',
-            type: "iphone"
-        },
-    
-        {
-            id: "8",
-            img: '13mini.jpg',
-            name: 'IPHONE 13 mini new',
-            prices: '1300',
-            type: "iphone"
-        },
-    
-        
-        {
-            id: "9",
-            img: 'macbook1.jpg',
-            name: 'MacBook Pro 13" 2020 Touch Bar M1 256GB',
-            prices: '2400',
-            type: "macbook"
-        },
-    
-        {
-            id: "10",
-            img: 'macbook2.jpg',
-            name: 'MacBook Pro 16" 2019 Touch Bar 2.6GHz Core i7 512GB',
-            prices: '2600',
-            type: "macbook"
-        },
-    
-        {
-            id: "11",
-            img: 'macbook3.jpg',
-            name: 'MacBook Air 13" 2020 M1 16GB/256GB',
-            prices: '2900',
-            type: "macbook"
-        },
-    
-        {
-            id: "12",
-            img: 'macbook4.jpg',
-            name: 'MacBook Pro 13" 2020 Touch Bar M1 16GB/256GB',
-            prices: '1900',
-            type: "macbook"
-        },
-    
-        {
-            id: "13",
-            img: 'macbook5.jpg',
-            name: 'MacBook Pro 14" 2021 M1 Pro',
-            prices: '1399',
-            type: "macbook"
-        },
-    
-        {
-            id: "14",
-            img: 'macbook6.jpg',
-            name: 'MacBook Pro 13" 2020 Touch Bar 2.0GHz Core i5 512GB',
-            prices: '1499',
-            type: "macbook"
-        },
-    
-        {
-            id: "15",
-            img: 'macbook7.jpg',
-            name: 'MacBook Pro 13" 2020 Touch Bar M1 256GB',
-            prices: '999',
-            type: "macbook"
-        },
-    
-        {
-            id: "16",
-            img: 'macbook7.jpg',
-            name: 'MacBook Pro 13" 2020 Touch Bar M1 256GB',
-            prices: '1099',
-            type: "macbook"
-        },
-    
-        {
-            id: "17",
-            img: 'ipad1.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1000',
-            type: "ipad"
-        },
-    
-        {
-            id: "18",
-            img: 'ipad2.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1400',
-            type: "ipad"
-        },
-    
-        {
-            id: "19",
-            img: 'ipad3.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1600',
-            type: "ipad"
-        },
-    
-        {
-            id: "20",
-            img: 'ipad4.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '1700',
-            type: "ipad"
-        },
-    
-        {
-            id: "21",
-            img: 'ipad5.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '2100',
-            type: "ipad"
-        },
-    
-        {
-            id: "22",
-            img: 'ipad6.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 256GB (2021)',
-            prices: '2000',
-            type: "ipad"
-        },
-    
-        {
-            id: "23",
-            img: 'ipad7.jpg',
-            name: 'Máy tính bảng iPad Pro M1 12.9 inch WiFi Cellular 128GB (2021)',
-            prices: '2400',
-            type: "ipad"
-        }
-    
-        ];
-  
-        localStorage.setItem('product',JSON.stringify(arrProduct));
-    
-}
-
-function createCustomer()
-{
-
-    var arrCustomer = [
-        {
-            user: 'admin',
-            password: 'admin',
-            email: 'lydatltd@gmail.com',
-            level: 0
-        },
-        {
-            user: 'datisekai',
-            password: 'bedatdz',
-            email: 'lydatltd@gmail.com',
-            level: 1
-        }
-    ];
-    localStorage.setItem('customer',JSON.stringify(arrCustomer));
-}
-    function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable) {
-            return decodeURIComponent(pair[1]);
-        }
-    }
-}
-
-    createProduct();
-    createCustomer();
-  
-
-var arrProduct = JSON.parse(localStorage.getItem('product'));
-
-</script>
 <body>
     <div class="main">
         <div id="preLoader"></div>
@@ -295,7 +55,6 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
                         <li class="has__login-item" id="admin" style="display: none;"><a href="">Admin</a></li>
                         <li class="has__login-item"><a href="index.html?event=vqmm">Vòng quay</a></li>
                         <li class="has__login-item"><a href="">Đơn đặt hàng</a></li>
-                        <li class="has__login-item"><a href="">Địa chỉ</a></li>
                         <li class="has__login-item"><a href="" id="logout" onclick="onLogOut();">Đăng xuất</a></li>
                     </ul>
                 </div>
@@ -449,13 +208,13 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
                     <div class="slide four"></div>
                    
                     <div class="navigation-auto">
-                    <div class="auto-btn1"></div>
-                    <div class="auto-btn2"></div>
-                    <div class="auto-btn3"></div>
-                    <div class="auto-btn4"></div>
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                        <div class="auto-btn4"></div>
                     </div>
                  
-                </div>
+            </div>
               
                 <div class="navigation-manual">
                     <label for="radio1" class="manual-btn"></label>
@@ -463,8 +222,7 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
                     <label for="radio3" class="manual-btn"></label>
                     <label for="radio4" class="manual-btn"></label>
                 </div>
-            </div>
-    
+        </div>
 
         <div class="container">
         
@@ -484,7 +242,6 @@ var arrProduct = JSON.parse(localStorage.getItem('product'));
                     </div>
                     <div class="col l-10 m-12 c-12" >
                             <h1 class="container__heading" id="containerHeading">LATEST PRODUCTS</h1>
-                            <h1 class="container__heading" id="luckyheading"></h1>
                             <div class="select__search">
                                 <select name="" id="selectPrices" onchange="onSelect();">
                                     <option >Lọc theo mức giá</option>
