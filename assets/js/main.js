@@ -11,6 +11,7 @@ function onLogin()
 {
     window.sessionStorage;
     var admin = false;
+    var level = 1;
     var username  = document.getElementById('username').value;
     var password  = document.getElementById('password').value;
     var flag = -1;
@@ -30,13 +31,16 @@ function onLogin()
         if (username.toUpperCase() == arrCustomer[i].user.toUpperCase() && password == arrCustomer[i].password)
         {
             flag = 1;
-            if(arrCustomer[i].level == 0) admin = true;
+            if(arrCustomer[i].level == 0) {
+                level = arrCustomer[i].level; admin = true;
+            }
             break;
         }
     }
 
     if (flag==1){
         sessionStorage.setItem('user',username);
+        sessionStorage.setItem('level',level)
         hideLogin();
         document.querySelector('.header__login').style.display = 'none';
         document.getElementById('hasLogin').style.display = 'flex';
@@ -117,11 +121,19 @@ function checkSession()
         document.getElementById('userLogin').textContent = sessionStorage.getItem('user');
         document.getElementById('hasLogin').style.display = 'flex';
     }
+    if(parseInt(sessionStorage.getItem('level')) == 0)
+    {
+        document.getElementById('admin').style.display = "";
+    }
+    else{
+        document.getElementById('admin').style.display = "none";
+    }
 }
 
 function onLogOut()
 {
     sessionStorage.removeItem('user');
+    sessionStorage.removeItem('level');
 }
 
 function onSignUp()
@@ -343,8 +355,8 @@ function renderVQMM()
         var s = '<div align="center" class=""><table >  <tr> <td><div class="power_controls">' +
         ' </div></td><td width="90%" height="auto" class="the_wheel" align="center" valign="center">' +
         '<canvas id="canvas" width="300" height="300"><p style="{color: white}" align="center"></p>' +
-        '</canvas></td></tr></table>'+'<div class="spinlucky"><input type="button" value="SPIN" id="spin_button" onclick="startSpin();"></br>' +
-        '<a href="" onclick="resetWheel(); return false;" id="playagain">Play Again</a><br /></div>' + '</div>';
+        '</canvas></td></tr></table>'+'<div class="spinlucky"><input type="button" value="Quay" id="spin_button" onclick="startSpin();"></br>' +
+        '<a href="" onclick="resetWheel(); return false;" id="playagain">Chơi lại</a><br /></div>' + '</div>';
         document.getElementById('content').innerHTML = s;
     }
 }
