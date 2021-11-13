@@ -794,7 +794,8 @@
 
 .modal__product-btn{
     padding: 8px;
-   
+    align-items: flex-end;
+    margin-top: 16px;
     display: flex;
     justify-content: space-around;
     
