@@ -393,6 +393,8 @@ function onSignUp()
     document.getElementById('login').style.display = "none";
     document.getElementById('modal-signup').style.display = "none";
     document.getElementById('modal-signin').style.display = "";
+    document.querySelector('.modal__content-login-other').style.display = 'none';
+    document.querySelector('.modal__content-social').style.display = 'none';
 }
 
 function onSignIn()
@@ -403,6 +405,8 @@ function onSignIn()
     document.getElementById('login').style.display = "";
     document.getElementById('modal-signup').style.display = "";
     document.getElementById('modal-signin').style.display = "none";
+    document.querySelector('.modal__content-login-other').style.display = 'block';
+    document.querySelector('.modal__content-social').style.display = 'flex';
 }
 
 //Slider
