@@ -524,7 +524,7 @@
 /* Container */
 .container{
   margin-top: 30px;
-    
+    padding-bottom: 300px;
 }
 
 .container__heading{

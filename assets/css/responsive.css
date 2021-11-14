@@ -1,5 +1,13 @@
 @media (max-width:739px)
 {
+    .container{
+        padding-bottom: 500px;
+    }
+    .home__product-item{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
     .header__search{
         display: none;
     }

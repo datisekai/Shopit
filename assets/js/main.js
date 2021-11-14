@@ -800,55 +800,40 @@ function onSort()
 
 function sortAscending()
 {
-    var ascending = arrProduct.sort(function(a,b){
+    var arrAscending = arrProduct.sort(function(a,b){
         return a.prices - b.prices;
     });
-    renderProduct(ascending);
+    renderProduct(arrAscending);
 }
 
 function sortDescending()
 {
-    var descending = arrProduct.sort(function(a,b){
+    var arrDescending = arrProduct.sort(function(a,b){
         return b.prices - a.prices;
     });
-    renderProduct(descending);
+    renderProduct(arrDescending);
 }
 
 function filter1()
 {
-    var arrFilter = [];
-    for (var i = 0;i<arrProduct.length;i++)
-    {
-        if(parseInt(arrProduct[i].prices) > 2000)
-        {
-            arrFilter.push(arrProduct[i]);
-        }
-    }
+    var arrFilter = arrProduct.filter(function(product,index,array){
+        return parseInt(product.prices) > 2000;
+    });
     renderProduct(arrFilter);
 }
 
 function filter2()
 {
-    var arrFilter = [];
-    for (var i = 0;i<arrProduct.length;i++)
-    {
-        if(parseInt(arrProduct[i].prices) >= 1000 && parseInt(arrProduct[i].prices) <= 2000)
-        {
-            arrFilter.push(arrProduct[i]);
-        }
-    }
+    var arrFilter = arrProduct.filter(function(product,index,array){
+        return parseInt(product.prices) >= 1000 &&  parseInt(product.prices) <= 2000;
+    });
     renderProduct(arrFilter);
 }
 
 function filter3()
 {
-    var arrFilter = [];
-    for (var i = 0;i<arrProduct.length;i++)
-    {
-        if(parseInt(arrProduct[i].prices) < 1000)
-        {
-            arrFilter.push(arrProduct[i]);
-        }
-    }
+    var arrFilter = arrProduct.filter(function(product,index,array){
+        return parseInt(product.prices) < 1000;
+    });
     renderProduct(arrFilter);
 }
