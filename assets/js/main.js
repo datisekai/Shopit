@@ -385,6 +385,7 @@ function onLogOut()
     sessionStorage.removeItem('level');
 }
 
+
 function onSignUp()
 {
     document.querySelector('.modal__content-heading').textContent = "REGISTER";
@@ -574,8 +575,28 @@ function renderDisplayProduct()
 {
 
     var product = getQueryVariable('product');
-    
     var arrSearch = [];
+    var d = 0;
+    if(getQueryVariable('product') !=null)
+    {
+    
+        for (var i=0;i<arrProduct.length;i++)
+        {
+            if(arrProduct[i].type == product){
+                arrSearch[d] = arrProduct[i];
+                d++;
+            }
+        }
+        renderProduct(arrSearch);
+    } else{
+        renderProduct(arrProduct);
+    }
+}
+
+function renderDisplayProduct1(arrSearch)
+{
+
+    var product = getQueryVariable('product');
     var d = 0;
     if(getQueryVariable('product') !=null)
     {
@@ -789,6 +810,7 @@ function onSelect()
 
 function onSort()
 {
+
     var sort = document.getElementById('sortPrices');
     switch(sort.value)
     {
@@ -807,7 +829,7 @@ function sortAscending()
     var arrAscending = arrProduct.sort(function(a,b){
         return a.prices - b.prices;
     });
-    renderProduct(arrAscending);
+    renderDisplayProduct1(arrAscending);
 }
 
 function sortDescending()
@@ -815,7 +837,7 @@ function sortDescending()
     var arrDescending = arrProduct.sort(function(a,b){
         return b.prices - a.prices;
     });
-    renderProduct(arrDescending);
+    renderDisplayProduct1(arrDescending);
 }
 
 function filter1()

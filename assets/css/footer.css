@@ -1,9 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
+
 .footer{
     color: aliceblue;
     background-color: #0B1727;
@@ -11,11 +6,12 @@
     display: flex;
     justify-content: space-around;
     min-height: 300px;
-    /* position: absolute;
+    position: absolute;
     bottom: 0;
     right: 0;
-    left: 0; */
+    left: 0;
     width: 100%;
+    font-family: sans-serif;
 }
 .footer__left{
     min-width: 23%;
@@ -87,11 +83,12 @@
     .footer{
         display: block;
         min-height: 500px;
-        padding-left: 15px;
+        padding-left: 8px;
+        padding-right: 8px;
         text-align: center;
     }
     .footer__left-item i{
-        margin-left: -5px;
+       
         font-size: 14px;
     }
     .footer__right{
@@ -99,7 +96,6 @@
     }
     .footer__icon{
         padding-bottom: 10px;
-        margin-left: -5px;
-        justify-content: center;
+       justify-content: center;
     }
 }
